@@ -21,16 +21,17 @@
 				<div class="img-box">
 					<img
 						class="headshot"
-						src="/src/assets/images/will-braun-headshot-min.jpg"
+						src="/assets/images/will-braun-headshot-min.jpg"
 						alt="Will Braun headshot"
 					/>
 				</div>
 			</div>
 		</div>
+		<!-- on:click={() => scrollTo('.about')} -->
 		<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
 			<img
 				class="col-xs-12"
-				src="/src/assets/images/angles-down-solid.svg"
+				src="/assets/images/angles-down-solid.svg"
 				alt="down arrow scroll to about"
 			/>
 		</button>
@@ -83,14 +84,14 @@
 						>
 							<button class="button-primary github-button" type="button">
 								<p>GitHub</p>
-								<img src="/src/assets/images/github.svg" alt="github icon" />
+								<img src="/assets/images/github.svg" alt="github icon" />
 							</button>
 						</a>
 					</div>
 				</div>
 				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
-						<img class="gridlock-img" src="/src/assets/images/gridlock-image.png" alt="Gridlock" />
+						<img class="gridlock-img" src="/assets/images/gridlock-image.png" alt="Gridlock" />
 						<div class="overlay">Click to play</div>
 					</a>
 				</div>
@@ -114,7 +115,7 @@
 				>
 					<button class="button-primary github-button" type="button">
 						<p>GitHub</p>
-						<img src="/src/assets/images/github.svg" alt="github icon" />
+						<img src="/assets/images/github.svg" alt="github icon" />
 					</button>
 				</a>
 			</div>
@@ -152,20 +153,22 @@
 				</button>
 			</a>
 			<div class="copy-email">
+				<!-- on:click={copyEmail} -->
 				<button class="copy-button button-secondary" type="button" on:click={copyEmail}>
 					<p>williamhbraun1@gmail.com</p>
-					<img src="/src/assets/images/copy-icon.svg" alt="copy email" />
+					<img src="/assets/images/copy-icon.svg" alt="copy email" />
 				</button>
 				<div class="copied">
-					<img src="/src/assets/images/check-solid.svg" alt="copied check mark" />
+					<img src="/assets/images/check-solid.svg" alt="copied check mark" />
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- on:click={() => scrollTo('.top')} -->
 	<button type="button" class="down-arrow up-arrow" on:click={() => scrollTo('.top')}>
 		<img
 			class="col-xs-12"
-			src="/src/assets/images/angles-down-solid.svg"
+			src="/assets/images/angles-down-solid.svg"
 			alt="up arrow scroll to top"
 		/>
 	</button>

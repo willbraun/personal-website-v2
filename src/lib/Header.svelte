@@ -24,7 +24,7 @@
 		</ul>
 	</nav>
 	<button class="mobile-menu-button" type="button" on:click={toggle}>
-		<img src="/src/assets/images/bars-solid.svg" alt="menu icon" />
+		<img src="/assets/images/bars-solid.svg" alt="menu icon" />
 	</button>
 	<Offcanvas class="mobile-menu" isOpen={open} {toggle} placement="end">
 		<nav class="mobile-nav">

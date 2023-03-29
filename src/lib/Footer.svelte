@@ -1,15 +1,20 @@
 <script>
-	let year = new Date(window.Date()).getFullYear()
+	let year = new Date(window.Date()).getFullYear();
 </script>
 
 <footer>
 	<div class="footer-info">
 		<p>Will Braun {year}</p>
-		<a class="logo" href="https://www.linkedin.com/in/williamhbraun/" target="_blank" rel="noopener noreferrer">
-			<img src="/src/assets/images/linkedin.svg" alt="GitHub icon" />
+		<a
+			class="logo"
+			href="https://www.linkedin.com/in/williamhbraun/"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<img src="/assets/images/linkedin.svg" alt="GitHub icon" />
 		</a>
 		<a class="logo" href="https://github.com/willbraun" target="_blank" rel="noopener noreferrer">
-			<img src="/src/assets/images/github.svg" alt="GitHub icon" />
+			<img src="/assets/images/github.svg" alt="GitHub icon" />
 		</a>
 	</div>
 </footer>
