@@ -1,13 +1,22 @@
 <script lang="ts">
-	const scrollTo = (selector: string) => document.querySelector(selector).scrollIntoView(true);
-	// const scrollTo = (placeholder: any) => {};
+	import { onMount } from 'svelte';
 
-	const copyEmail = () => {
-		navigator.clipboard.writeText('williamhbraun1@gmail.com');
-		document.querySelector('.copied').classList.add('show-check');
-	};
+	let scrollTo: Function;
+	onMount(() => {
+		scrollTo = (selector: string): void => {
+			const element = document.querySelector(selector);
+			!!element && element.scrollIntoView(true);
+		};
+	});
 
-	// const copyEmail = () => {};
+	let showCheck: boolean = false;
+	let copyEmail: Function;
+	onMount(() => {
+		copyEmail = () => {
+			navigator.clipboard.writeText('williamhbraun1@gmail.com');
+			showCheck = true;
+		};
+	});
 </script>
 
 <main class="scroll-point">
@@ -27,7 +36,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- on:click={() => scrollTo('.about')} -->
 		<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
 			<img
 				class="col-xs-12"
@@ -41,10 +49,10 @@
 		<p>
 			I'm passionate about making ideas come to life on the web. While working as a consultant at a
 			software company, I learned firsthand the power of code and how it could be used to improve
-			lives of millions. I dabbled with JavaScript in my spare time and I was hooked, leading me on
-			a life-changing journey to becoming a software engineer. Now, I am a software engineer at SIOS
-			Technology Corp., where I work on high availability and disaster recovery solutions for cloud
-			systems.
+			lives of millions. I dabbled with JavaScript in my spare time and I was hooked, which
+			jumpstarted me on a life-changing journey to code professionally. Now, I am a software
+			engineer at SIOS Technology Corp., where I work on high availability and disaster recovery
+			solutions for cloud systems.
 		</p>
 	</section>
 	<section class="scroll-point projects">
@@ -153,18 +161,16 @@
 				</button>
 			</a>
 			<div class="copy-email">
-				<!-- on:click={copyEmail} -->
-				<button class="copy-button button-secondary" type="button" on:click={copyEmail}>
+				<button class="copy-button button-secondary" type="button" on:click={() => copyEmail()}>
 					<p>williamhbraun1@gmail.com</p>
 					<img src="/assets/images/copy-icon.svg" alt="copy email" />
 				</button>
-				<div class="copied">
+				<div class="copied {showCheck && 'show-check'}">
 					<img src="/assets/images/check-solid.svg" alt="copied check mark" />
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- on:click={() => scrollTo('.top')} -->
 	<button type="button" class="down-arrow up-arrow" on:click={() => scrollTo('.top')}>
 		<img
 			class="col-xs-12"

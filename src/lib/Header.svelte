@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Offcanvas } from 'sveltestrap/src';
 
 	let scrollPoints: NodeListOf<HTMLElement>;
@@ -7,10 +8,10 @@
 	let open: boolean = false;
 	const toggle = () => (open = !open);
 
-	window.onload = () => {
+	onMount(() => {
 		scrollPoints = document.querySelectorAll('.scroll-point');
 		scrollToPoint = (index: number) => scrollPoints[index].scrollIntoView(true);
-	};
+	});
 </script>
 
 <header>

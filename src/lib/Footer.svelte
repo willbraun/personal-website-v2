@@ -1,5 +1,5 @@
-<script>
-	let year = new Date(window.Date()).getFullYear();
+<script lang="ts">
+	let year: string = new Date().getFullYear().toString();
 </script>
 
 <footer>
