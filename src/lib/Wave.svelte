@@ -64,7 +64,7 @@
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 992px) {
 		.waves {
 			height: 40px;
 			min-height: 40px;

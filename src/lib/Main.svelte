@@ -20,7 +20,7 @@
 	});
 </script>
 
-<main class="scroll-point">
+<main class="scroll-point" on:scroll={() => console.log('hi')}>
 	<section class="top">
 		<div class="row align-items-center m-0 p-0">
 			<div class="col-xs-12 col-lg-7 pb-3 title">
@@ -195,7 +195,12 @@
 	}
 
 	section:first-child {
-		background-color: lightyellow;
+		background: linear-gradient(
+			0deg,
+			rgba(255, 122, 237, 1) 0%,
+			rgba(255, 220, 165, 1) 50%,
+			rgba(211, 242, 255, 1) 100%
+		);
 		margin-bottom: 2rem;
 	}
 
@@ -211,8 +216,9 @@
 		font-size: 1.5rem;
 	}
 
-	.title {
+	.title * {
 		text-align: center;
+		color: var(--background-color);
 	}
 
 	.title p {
@@ -229,7 +235,6 @@
 		font-family: 'Bakbak One';
 	}
 
-	h1,
 	h2,
 	h3,
 	p {
@@ -262,6 +267,7 @@
 	.headshot {
 		height: 100%;
 		border-radius: 50%;
+		border: 0.8rem solid var(--background-color);
 	}
 
 	.down-arrow-box {
@@ -479,7 +485,7 @@
 		}
 
 		.title {
-			margin: 5vh 0 2rem;
+			margin: 4vh 0 1rem;
 		}
 	}
 </style>

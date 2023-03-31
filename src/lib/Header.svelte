@@ -2,24 +2,36 @@
 	import { onMount } from 'svelte';
 	import { Offcanvas } from 'sveltestrap/src';
 
+	let y: number = 0;
+	let downArrowTop: number = 0;
+	onMount(() => {
+		const main = document.querySelector('main') as Element;
+		y = main.getBoundingClientRect().top;
+		const downArrowBox = document.querySelector('.down-arrow-box') as Element;
+		downArrowTop = downArrowBox.getBoundingClientRect().top;
+	});
+
 	let scrollPoints: NodeListOf<HTMLElement>;
 	let scrollToPoint: Function;
 	let labels: string[] = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
 	let open: boolean = false;
 	const toggle = () => (open = !open);
-
 	onMount(() => {
 		scrollPoints = document.querySelectorAll('.scroll-point');
 		scrollToPoint = (index: number) => scrollPoints[index].scrollIntoView(true);
 	});
 </script>
 
+<svelte:window bind:scrollY={y} />
+
 <header>
 	<nav class="desktop-nav">
 		<ul>
 			{#each labels as label, index}
 				<li>
-					<button on:click={() => scrollToPoint(index)}>{label}</button>
+					<button class={y > downArrowTop ? 'underwater' : ''} on:click={() => scrollToPoint(index)}
+						>{label}</button
+					>
 				</li>
 			{/each}
 		</ul>
@@ -55,7 +67,7 @@
 	}
 
 	.desktop-nav {
-		background-color: var(--background-color-translucent);
+		background-color: transparent;
 		backdrop-filter: blur(10px);
 		height: 100%;
 	}
@@ -79,6 +91,15 @@
 	.desktop-nav li {
 		margin: 0 0 0 1rem;
 		font-size: 1.2rem;
+	}
+
+	.desktop-nav button {
+		color: var(--background-color);
+		transition: 0.2s;
+	}
+
+	.desktop-nav .underwater {
+		color: var(--accent-color);
 	}
 
 	.desktop-nav button,
