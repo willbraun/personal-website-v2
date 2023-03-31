@@ -37,7 +37,7 @@
 	.footer-info p {
 		font-family: 'Bakbak One';
 		font-size: 1.8rem;
-		color: var(--accent-color);
+		color: #999;
 	}
 
 	.footer-info > *:not(:last-child) {
@@ -46,7 +46,7 @@
 
 	.logo img {
 		width: 2.5rem;
-		filter: var(--svg-filter-white);
+		filter: var(--svg-filter-999999);
 	}
 
 	@media (max-width: 768px) {

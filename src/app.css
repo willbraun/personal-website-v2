@@ -8,11 +8,14 @@
 
 	--header-height: 3rem;
 	--min-page-margin: 2rem;
+	/* --accent-color: rgba(255, 255, 255, 0.87); */
 	--background-color: rgba(0, 28, 85, 1);
 	--background-color-translucent: rgba(0, 28, 85, 0.5);
-	--accent-color: rgba(255, 255, 255, 0.87);
+	--accent-color: #d6e4ff;
 	--svg-filter-white: invert(100%) sepia(0%) saturate(2%) hue-rotate(241deg) brightness(105%)
 		contrast(101%);
+	--svg-filter-999999: invert(61%) sepia(79%) saturate(5%) hue-rotate(333deg) brightness(86%)
+		contrast(85%);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import Wave from './Wave.svelte';
 
 	let scrollTo: Function;
 	onMount(() => {
@@ -36,23 +37,27 @@
 				</div>
 			</div>
 		</div>
-		<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
-			<img
-				class="col-xs-12"
-				src="/assets/images/angles-down-solid.svg"
-				alt="down arrow scroll to about"
-			/>
-		</button>
+		<Wave />
+		<div class="down-arrow-box">
+			<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
+				<img
+					class="col-xs-12"
+					src="/assets/images/angles-down-solid.svg"
+					alt="down arrow scroll to about"
+				/>
+			</button>
+		</div>
 	</section>
+
 	<section class="scroll-point about">
 		<h2>About</h2>
 		<p>
-			I'm passionate about making ideas come to life on the web. While working as a consultant at a
-			software company, I learned firsthand the power of code and how it could be used to improve
-			lives of millions. I dabbled with JavaScript in my spare time and I was hooked, which
-			jumpstarted me on a life-changing journey to code professionally. Now, I am a software
-			engineer at SIOS Technology Corp., where I work on high availability and disaster recovery
-			solutions for cloud systems.
+			I'm passionate about making ideas come to life on the web. While working as a software
+			consultant, I learned firsthand the power of code and how it could be used to improve lives of
+			millions. I dabbled with JavaScript in my spare time and I was hooked, which jumpstarted me on
+			a life-changing journey to code professionally. Now, I am a software engineer at SIOS
+			Technology Corp., where I work on high availability and disaster recovery solutions for cloud
+			systems.
 		</p>
 	</section>
 	<section class="scroll-point projects">
@@ -186,13 +191,19 @@
 		top: 0;
 		width: 100%;
 		background-color: var(--background-color);
-		padding: 0 var(--min-page-margin) 6rem;
+		padding: 0 0 6rem;
 	}
 
-	section {
+	section:first-child {
+		background-color: lightyellow;
+		margin-bottom: 2rem;
+	}
+
+	section:not(:first-child) {
 		width: 100%;
 		max-width: 992px;
-		margin: 0 auto 2rem;
+		padding: 0 var(--min-page-margin);
+		margin: 0 auto 3rem;
 		scroll-margin: var(--header-height);
 	}
 
@@ -204,8 +215,12 @@
 		text-align: center;
 	}
 
+	.title p {
+		font-size: 1.5rem;
+	}
+
 	h1 {
-		font-size: clamp(3rem, 15vw, 5rem);
+		font-size: clamp(3rem, 15vw, 6rem);
 	}
 
 	h1,
@@ -247,6 +262,14 @@
 	.headshot {
 		height: 100%;
 		border-radius: 50%;
+	}
+
+	.down-arrow-box {
+		position: absolute;
+		bottom: 0;
+		width: 100vw;
+		height: 9.5vh;
+		background-color: var(--background-color);
 	}
 
 	.down-arrow,
