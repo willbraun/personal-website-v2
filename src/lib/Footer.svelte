@@ -23,7 +23,7 @@
 	footer {
 		position: relative;
 		width: 100%;
-		background-color: #191919;
+		background-color: var(--footer-color);
 		padding: 1rem;
 	}
 

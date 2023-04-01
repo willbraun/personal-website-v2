@@ -2,14 +2,15 @@
 	import { onMount } from 'svelte';
 	import { Offcanvas } from 'sveltestrap/src';
 
-	let y: number = 0;
-	let downArrowTop: number = 0;
+	let scrollY: number;
+	let downArrowY: number;
+	let underwaterClass: string = '';
 	onMount(() => {
-		const main = document.querySelector('main') as Element;
-		y = main.getBoundingClientRect().top;
-		const downArrowBox = document.querySelector('.down-arrow-box') as Element;
-		downArrowTop = downArrowBox.getBoundingClientRect().top;
+		const mainTop = document.querySelector('main')!.getBoundingClientRect().top;
+		const downArrowTop = document.querySelector('.down-arrow-box')!.getBoundingClientRect().top;
+		downArrowY = downArrowTop - mainTop;
 	});
+	$: underwaterClass = scrollY > downArrowY ? 'underwater' : '';
 
 	let scrollPoints: NodeListOf<HTMLElement>;
 	let scrollToPoint: Function;
@@ -22,16 +23,14 @@
 	});
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY />
 
-<header>
+<header class={underwaterClass}>
 	<nav class="desktop-nav">
 		<ul>
 			{#each labels as label, index}
 				<li>
-					<button class={y > downArrowTop ? 'underwater' : ''} on:click={() => scrollToPoint(index)}
-						>{label}</button
-					>
+					<button on:click={() => scrollToPoint(index)}>{label}</button>
 				</li>
 			{/each}
 		</ul>
@@ -95,10 +94,14 @@
 
 	.desktop-nav button {
 		color: var(--background-color);
-		transition: 0.2s;
+		transition: 0.1s;
 	}
 
-	.desktop-nav .underwater {
+	header.underwater .desktop-nav {
+		background-color: var(--background-color-translucent);
+	}
+
+	header.underwater .desktop-nav button {
 		color: var(--accent-color);
 	}
 
@@ -126,11 +129,21 @@
 
 	.mobile-menu-button img {
 		width: 100%;
-		filter: var(--svg-filter-white);
+		filter: var(--background-color);
+		transition: 0.1s;
+	}
+
+	header.underwater .mobile-menu-button img {
+		filter: var(--svg-filter-accent);
 	}
 
 	.mobile-nav li {
 		font-size: 4rem;
+		font-family: 'Bakbak One';
+	}
+
+	.mobile-nav button {
+		color: var(--accent-color);
 	}
 
 	@media (max-width: 992px) {

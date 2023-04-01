@@ -13,7 +13,7 @@
 	let showCheck: boolean = false;
 	let copyEmail: Function;
 	onMount(() => {
-		copyEmail = () => {
+		copyEmail = (): void => {
 			navigator.clipboard.writeText('williamhbraun1@gmail.com');
 			showCheck = true;
 		};
@@ -75,10 +75,10 @@
 					</p>
 					<br />
 					<p>
-						I am most proud of the "Computer - Hard" mode in Settings. It is an AI that I created to
-						play against you, and it is quite a challenge! I modeled the AI after chess engines, and
-						it uses a minimax algorithm, alpha-beta pruning, and an evaluation function. See if you
-						can beat it!
+						Do you like a challenge? I am most proud of the "Computer - Hard" mode in Settings. It
+						is an AI that I created to play against you, which was inspired by chess engines. It
+						uses a minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can
+						beat it!
 					</p>
 					<div class="project-buttons">
 						<a
@@ -117,8 +117,8 @@
 				I was inspired to create a solution to connect people based on their unique interests. With
 				OpenSeat, you can create events to do any activity you'd like with a small group. You can
 				also search for and sign up for events that others have posted. It is a full stack app that
-				I build using React, Django, Google and Twilio APIs, and deployed to Heroku. This was my
-				final project at Carolina Code School, and I've included a video demo of the app.
+				I built using React, Django, Google and Twilio APIs, and deployed to Heroku. This was my
+				final project at Carolina Code School, and I've included a video demo of the app below.
 			</p>
 			<div class="project-buttons">
 				<a
@@ -162,7 +162,7 @@
 			<p>Want to chat? Feel free to reach out!</p>
 			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer">
 				<button class="button-primary" type="button">
-					<p>Say Hello</p>
+					<p>Open Mail App</p>
 				</button>
 			</a>
 			<div class="copy-email">
@@ -199,7 +199,7 @@
 			0deg,
 			rgba(255, 122, 237, 1) 0%,
 			rgba(255, 220, 165, 1) 50%,
-			rgba(211, 242, 255, 1) 100%
+			var(--sky-blue) 100%
 		);
 		margin-bottom: 2rem;
 	}
@@ -273,8 +273,8 @@
 	.down-arrow-box {
 		position: absolute;
 		bottom: 0;
-		width: 100vw;
-		height: 9.5vh;
+		width: 100%;
+		height: 10%;
 		background-color: var(--background-color);
 	}
 
@@ -302,7 +302,7 @@
 	.down-arrow img,
 	.up-arrow img {
 		width: 100%;
-		filter: var(--svg-filter-white);
+		filter: var(--svg-filter-accent);
 	}
 
 	.project {
@@ -398,6 +398,12 @@
 		border: 1px solid var(--accent-color);
 		border-radius: 0.5rem;
 		height: 3rem;
+		transition: 0.1s;
+	}
+
+	.button-primary:hover,
+	.button-secondary:hover {
+		transform: scale(1.07);
 	}
 
 	.blog .button-primary {
@@ -427,7 +433,7 @@
 	.copy-button img {
 		width: 1.8rem;
 		margin-left: 1rem;
-		filter: var(--svg-filter-white);
+		filter: var(--svg-filter-accent);
 	}
 
 	.copied {
@@ -440,7 +446,7 @@
 
 	.copied img {
 		width: 2rem;
-		filter: var(--svg-filter-white);
+		filter: var(--svg-filter-accent);
 	}
 
 	.copied:not(.show-check) {

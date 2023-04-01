@@ -9,9 +9,12 @@
 	--header-height: 3rem;
 	--min-page-margin: 2rem;
 	--background-color: rgba(0, 28, 85, 1);
-	/* --header-color: rgba(211, 242, 255, 0.5);
-	--background-color-translucent: rgba(0, 28, 85, 0.5); */
+	--background-color-translucent: rgba(0, 28, 85, 0.5);
+	--footer-color: #191919;
 	--accent-color: #d6e4ff;
+	--sky-blue: rgba(211, 242, 255, 1);
+	--svg-filter-accent: invert(92%) sepia(4%) saturate(3660%) hue-rotate(184deg) brightness(98%)
+		contrast(106%);
 	--svg-filter-white: invert(100%) sepia(0%) saturate(2%) hue-rotate(241deg) brightness(105%)
 		contrast(101%);
 	--svg-filter-999999: invert(61%) sepia(79%) saturate(5%) hue-rotate(333deg) brightness(86%)
@@ -30,6 +33,26 @@
 
 html {
 	scroll-behavior: smooth;
+}
+
+html::before {
+	content: '';
+	position: fixed;
+	width: 100%;
+	height: 50%;
+	top: 0;
+	background-color: var(--sky-blue);
+	z-index: -10;
+}
+
+html::after {
+	content: '';
+	position: fixed;
+	width: 100%;
+	height: 50%;
+	bottom: 0;
+	background-color: var(--footer-color);
+	z-index: -10;
 }
 
 h1,
@@ -61,7 +84,7 @@ a {
 
 .mobile-menu .btn-close {
 	opacity: 1;
-	filter: brightness(0) invert(1);
+	filter: var(--svg-filter-accent);
 	padding: 1rem;
 }
 
@@ -72,6 +95,5 @@ a {
 @font-face {
 	font-family: 'Bakbak One';
 	font-style: normal;
-	font-weight: 400;
 	src: url('/assets/fonts/BakbakOne-Regular.ttf');
 }
