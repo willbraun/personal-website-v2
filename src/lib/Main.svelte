@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Wave from './Wave.svelte';
+	import TechLogo from './TechLogo.svelte';
+	import { techData } from '../techData';
 
 	let scrollTo: Function;
 	onMount(() => {
@@ -59,6 +61,12 @@
 			Technology Corp., where I work on high availability and disaster recovery solutions for cloud
 			systems.
 		</p>
+		<h3>Skills</h3>
+		<div class="skills">
+			{#each techData as data, index}
+				<TechLogo {data} {index} />
+			{/each}
+		</div>
 	</section>
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
@@ -232,7 +240,7 @@
 	h1,
 	h2,
 	h3 {
-		font-family: 'Bakbak One';
+		font-family: 'Bakbak One', 'Georgia', 'sans-serif';
 	}
 
 	h2,
@@ -303,6 +311,16 @@
 	.up-arrow img {
 		width: 100%;
 		filter: var(--svg-filter-accent);
+	}
+
+	.about p {
+		margin: 1rem 0 2rem;
+	}
+
+	.skills {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.project {
