@@ -4,6 +4,8 @@
 	import TechLogo from './TechLogo.svelte';
 	import { techData } from '../techData';
 
+	import gridlockImg from '/src/assets/images/gridlock-image.png?w=500&webp;png';
+
 	let scrollTo: Function;
 	onMount(() => {
 		scrollTo = (selector: string): void => {
@@ -112,7 +114,7 @@
 				</div>
 				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
-						<img class="gridlock-img" src="/assets/images/gridlock-image.png" alt="Gridlock" />
+						<img class="gridlock-img" src={gridlockImg} alt="Gridlock" />
 						<div class="overlay">Click to play</div>
 					</a>
 				</div>

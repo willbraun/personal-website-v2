@@ -21,7 +21,7 @@ export const techData = [
 	},
 	{
 		name: 'Bootstrap',
-		img: 'bootstrap-logo.png'
+		img: 'bootstrap-logo.webp'
 	},
 	{
 		name: 'Python',
@@ -33,7 +33,7 @@ export const techData = [
 	},
 	{
 		name: 'Perl',
-		img: 'perl-logo.png'
+		img: 'perl-logo.webp'
 	},
 	{
 		name: 'Git',
