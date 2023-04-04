@@ -1,66 +1,53 @@
-import reactAvif from '/src/assets/images/tech-logos/react-logo.png?w=150?avif';
-import reactWebp from '/src/assets/images/tech-logos/react-logo.png?w=150?webp';
-import react from '/src/assets/images/tech-logos/react-logo.png?w=150';
+import react from '/src/assets/images/tech-logos/react-logo.png?w=150&format=avif;webp;png&picture';
+import svelte from '/src/assets/images/tech-logos/svelte-logo.png?w=150&format=avif;webp;png&picture';
+import typescript from '/src/assets/images/tech-logos/typescript-logo.png?w=150&format=avif;webp;png&picture';
+import html from '/src/assets/images/tech-logos/html-logo.png?w=150&format=avif;webp;png&picture';
+import css from '/src/assets/images/tech-logos/css-logo.png?w=150&format=avif;webp;png&picture';
+import bootstrap from '/src/assets/images/tech-logos/bootstrap-logo.png?w=150&format=avif;webp;png&picture';
+import python from '/src/assets/images/tech-logos/python-logo.png?w=150&format=avif;webp;png&picture';
+import django from '/src/assets/images/tech-logos/django-logo.png?w=150&format=avif;webp;png&picture';
+import perl from '/src/assets/images/tech-logos/perl-logo.png?w=150&format=avif;webp;png&picture';
+import git from '/src/assets/images/tech-logos/git-logo.png?w=150&format=avif;webp;png&picture';
 
 export const techData = [
 	{
 		name: 'React',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: react
 	},
 	{
 		name: 'Svelte',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: svelte
 	},
 	{
 		name: 'TypeScript',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: typescript
 	},
 	{
 		name: 'HTML',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: html
 	},
 	{
 		name: 'CSS',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: css
 	},
 	{
 		name: 'Bootstrap',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: bootstrap
 	},
 	{
 		name: 'Python',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: python
 	},
 	{
 		name: 'Django',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: django
 	},
 	{
 		name: 'Perl',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: perl
 	},
 	{
 		name: 'Git',
-		avif: reactAvif,
-		webp: reactWebp,
-		fallback: react
+		image: git
 	}
 ];

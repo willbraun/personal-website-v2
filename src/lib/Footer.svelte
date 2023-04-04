@@ -1,4 +1,7 @@
 <script lang="ts">
+	import linkedin from '/src/assets/images/linkedin.svg';
+	import github from '/src/assets/images/github.svg';
+
 	let year: string = new Date().getFullYear().toString();
 </script>
 
@@ -11,10 +14,10 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<img src="/assets/images/linkedin.svg" alt="GitHub icon" />
+			<img src={linkedin} alt="GitHub icon" loading="lazy" />
 		</a>
 		<a class="logo" href="https://github.com/willbraun" target="_blank" rel="noopener noreferrer">
-			<img src="/assets/images/github.svg" alt="GitHub icon" />
+			<img src={github} alt="GitHub icon" loading="lazy" />
 		</a>
 	</div>
 </footer>

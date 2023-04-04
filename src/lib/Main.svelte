@@ -4,17 +4,37 @@
 	import TechLogo from './TechLogo.svelte';
 	import { techData } from '../techData';
 
-	import headshotAvif from '/src/assets/images/will-braun-headshot-min.jpg?w=500&avif';
-	import headshotWebp from '/src/assets/images/will-braun-headshot-min.jpg?w=500&webp';
-	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=500';
+	type ImageToolsSingle = {
+		src: string;
+		h?: number;
+		w?: number;
+	};
 
-	import downArrowAvif from '/src/assets/images/angles-down-solid.svg?avif';
-	import downArrowWebp from '/src/assets/images/angles-down-solid.svg?webp';
+	interface ImageToolsOutput {
+		fallback: ImageToolsSingle;
+		sources: {
+			avif: ImageToolsSingle[];
+			webp: ImageToolsSingle[];
+		};
+	}
+
+	const getImageSources = (importedImage: ImageToolsOutput) => {
+		return {
+			avif: importedImage.sources.avif[0].src,
+			webp: importedImage.sources.webp[0].src,
+			png: importedImage.fallback.src
+		};
+	};
+
+	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
 	import downArrow from '/src/assets/images/angles-down-solid.svg';
+	import gridlock from '/src/assets/images/gridlock-image.png?format=avif;webp;png&picture';
+	import github from '/src/assets/images/github.svg';
+	import copy from '/src/assets/images/copy-icon.svg';
+	import check from '/src/assets/images/check-solid.svg';
 
-	import gridlockAvif from '/src/assets/images/gridlock-image.png?avif';
-	import gridlockWebp from '/src/assets/images/gridlock-image.png?webp';
-	import gridlock from '/src/assets/images/gridlock-image.png?w=350';
+	const headshotSources = getImageSources(headshot);
+	const gridlockSources = getImageSources(gridlock);
 
 	let scrollTo: Function;
 	onMount(() => {
@@ -44,9 +64,9 @@
 			<div class="col-xs-12 col-lg-5">
 				<div class="img-box">
 					<picture>
-						<source srcset={headshotAvif} type="image/avif" />
-						<source srcset={headshotWebp} type="image/webp" />
-						<img class="headshot" src={headshot} alt="Headshot" />
+						<source srcset={headshotSources.avif} type="image/avif" />
+						<source srcset={headshotSources.webp} type="image/webp" />
+						<img class="headshot" src={headshotSources.png} alt="Headshot" loading="eager" />
 					</picture>
 				</div>
 			</div>
@@ -54,11 +74,12 @@
 		<Wave />
 		<div class="down-arrow-box">
 			<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
-				<picture>
-					<source srcset={downArrowAvif} type="image/avif" />
-					<source srcset={downArrowWebp} type="image/webp" />
-					<img class="col-xs-12" src={downArrow} alt="Down arrow to scroll to About" />
-				</picture>
+				<img
+					class="col-xs-12"
+					src={downArrow}
+					alt="Down arrow to scroll to About"
+					loading="eager"
+				/>
 			</button>
 		</div>
 	</section>
@@ -117,7 +138,7 @@
 						>
 							<button class="button-primary github-button" type="button">
 								<p>GitHub</p>
-								<img src="/assets/images/github.svg" alt="github icon" />
+								<img src={github} alt="github icon" loading="lazy" />
 							</button>
 						</a>
 					</div>
@@ -125,9 +146,9 @@
 				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
 						<picture>
-							<source srcset={gridlockAvif} type="image/avif" />
-							<source srcset={gridlockWebp} type="image/webp" />
-							<img class="gridlock-img" src={gridlock} alt="Gridlock" />
+							<source srcset={gridlockSources.avif} type="image/avif" />
+							<source srcset={gridlockSources.webp} type="image/webp" />
+							<img class="gridlock-img" src={gridlockSources.png} alt="Gridlock" loading="lazy" />
 						</picture>
 						<div class="overlay">Click to play</div>
 					</a>
@@ -152,7 +173,7 @@
 				>
 					<button class="button-primary github-button" type="button">
 						<p>GitHub</p>
-						<img src="/assets/images/github.svg" alt="github icon" />
+						<img src={github} alt="github icon" loading="lazy" />
 					</button>
 				</a>
 			</div>
@@ -163,6 +184,7 @@
 					frameborder="0"
 					allowfullscreen
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+					loading="lazy"
 				/>
 			</div>
 		</article>
@@ -192,20 +214,16 @@
 			<div class="copy-email">
 				<button class="copy-button button-secondary" type="button" on:click={() => copyEmail()}>
 					<p>williamhbraun1@gmail.com</p>
-					<img src="/assets/images/copy-icon.svg" alt="copy email" />
+					<img src={copy} alt="copy email" loading="lazy" />
 				</button>
 				<div class="copied {showCheck && 'show-check'}">
-					<img src="/assets/images/check-solid.svg" alt="copied check mark" />
+					<img src={check} alt="copied check mark" loading="lazy" />
 				</div>
 			</div>
 		</div>
 	</section>
 	<button type="button" class="down-arrow up-arrow" on:click={() => scrollTo('.top')}>
-		<img
-			class="col-xs-12"
-			src="/assets/images/angles-down-solid.svg"
-			alt="up arrow scroll to top"
-		/>
+		<img class="col-xs-12" src={downArrow} alt="up arrow scroll to top" loading="lazy" />
 	</button>
 </main>
 
@@ -288,7 +306,8 @@
 		margin: auto;
 	}
 
-	.img-box img {
+	.img-box > picture > img {
+		width: 100%;
 		height: 100%;
 		border-radius: 50%;
 		border: 0.8rem solid var(--background-color);

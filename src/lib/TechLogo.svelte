@@ -1,9 +1,7 @@
 <script lang="ts">
 	export let data: {
 		name: string;
-		avif: any;
-		webp: any;
-		fallback: any;
+		image: any;
 	};
 	export let index: number;
 </script>
@@ -11,9 +9,9 @@
 <div class="tech-logo" style="animation-delay: -{0.5 * index}s">
 	<div class="img-box">
 		<picture>
-			<source srcset={data.avif} type="image/avif" />
-			<source srcset={data.webp} type="image/webp" />
-			<img src={data.fallback} alt="{data.name} logo" />
+			<source srcset={data.image.sources.avif[0].src} type="image/avif" />
+			<source srcset={data.image.sources.webp[0].src} type="image/webp" />
+			<img src={data.image.fallback.src} alt="{data.name} logo" />
 		</picture>
 	</div>
 	<p>{data.name}</p>
@@ -42,7 +40,8 @@
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		width: 80%;
+		height: 60%;
+		max-width: 60%;
 	}
 
 	p {

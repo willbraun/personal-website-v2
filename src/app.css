@@ -95,5 +95,6 @@ a {
 @font-face {
 	font-family: 'Bakbak One';
 	font-style: normal;
-	src: url('/assets/fonts/BakbakOne-Regular.ttf');
+	font-display: fallback;
+	src: url('/src/assets/fonts/BakbakOne-Regular.ttf');
 }

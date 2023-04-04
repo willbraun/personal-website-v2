@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Offcanvas } from 'sveltestrap/src';
+	import menu from '/src/assets/images/bars-solid.svg';
 
 	let scrollY: number;
 	let downArrowY: number;
@@ -36,7 +37,7 @@
 		</ul>
 	</nav>
 	<button class="mobile-menu-button" type="button" on:click={toggle}>
-		<img src="/assets/images/bars-solid.svg" alt="menu icon" />
+		<img src={menu} alt="menu icon" loading="eager" />
 	</button>
 	<Offcanvas class="mobile-menu" isOpen={open} {toggle} placement="end">
 		<nav class="mobile-nav">

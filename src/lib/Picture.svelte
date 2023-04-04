@@ -1,9 +1,23 @@
 <script lang="ts">
-	export let className: string, avif: string, webp: string, fallback: string, alt: string;
+	type ImageToolsSingle = {
+		src: string;
+		h?: number;
+		w?: number;
+	};
+
+	interface ImageToolsOutput {
+		fallback: ImageToolsSingle;
+		sources: {
+			avif: ImageToolsSingle[];
+			webp: ImageToolsSingle[];
+		};
+	}
+
+	export let image: ImageToolsOutput, alt: string;
 </script>
 
 <picture>
-	<source srcset={avif} type="image/avif" />
-	<source srcset={webp} type="image/webp" />
-	<img class={className} src={fallback} {alt} />
+	<source srcset={image.sources.avif[0].src} type="image/avif" />
+	<source srcset={image.sources.webp[0].src} type="image/webp" />
+	<img src={image.fallback.src} {alt} />
 </picture>
