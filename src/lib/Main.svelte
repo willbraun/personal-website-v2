@@ -4,7 +4,17 @@
 	import TechLogo from './TechLogo.svelte';
 	import { techData } from '../techData';
 
-	import gridlockImg from '/src/assets/images/gridlock-image.png?w=500&webp;png';
+	import headshotAvif from '/src/assets/images/will-braun-headshot-min.jpg?w=500&avif';
+	import headshotWebp from '/src/assets/images/will-braun-headshot-min.jpg?w=500&webp';
+	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=500';
+
+	import downArrowAvif from '/src/assets/images/angles-down-solid.svg?avif';
+	import downArrowWebp from '/src/assets/images/angles-down-solid.svg?webp';
+	import downArrow from '/src/assets/images/angles-down-solid.svg';
+
+	import gridlockAvif from '/src/assets/images/gridlock-image.png?avif';
+	import gridlockWebp from '/src/assets/images/gridlock-image.png?webp';
+	import gridlock from '/src/assets/images/gridlock-image.png?w=350';
 
 	let scrollTo: Function;
 	onMount(() => {
@@ -33,22 +43,22 @@
 			</div>
 			<div class="col-xs-12 col-lg-5">
 				<div class="img-box">
-					<img
-						class="headshot"
-						src="/assets/images/will-braun-headshot-min.jpg"
-						alt="Will Braun headshot"
-					/>
+					<picture>
+						<source srcset={headshotAvif} type="image/avif" />
+						<source srcset={headshotWebp} type="image/webp" />
+						<img class="headshot" src={headshot} alt="Headshot" />
+					</picture>
 				</div>
 			</div>
 		</div>
 		<Wave />
 		<div class="down-arrow-box">
 			<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
-				<img
-					class="col-xs-12"
-					src="/assets/images/angles-down-solid.svg"
-					alt="down arrow scroll to about"
-				/>
+				<picture>
+					<source srcset={downArrowAvif} type="image/avif" />
+					<source srcset={downArrowWebp} type="image/webp" />
+					<img class="col-xs-12" src={downArrow} alt="Down arrow to scroll to About" />
+				</picture>
 			</button>
 		</div>
 	</section>
@@ -114,7 +124,11 @@
 				</div>
 				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
-						<img class="gridlock-img" src={gridlockImg} alt="Gridlock" />
+						<picture>
+							<source srcset={gridlockAvif} type="image/avif" />
+							<source srcset={gridlockWebp} type="image/webp" />
+							<img class="gridlock-img" src={gridlock} alt="Gridlock" />
+						</picture>
 						<div class="overlay">Click to play</div>
 					</a>
 				</div>
@@ -274,7 +288,7 @@
 		margin: auto;
 	}
 
-	.headshot {
+	.img-box img {
 		height: 100%;
 		border-radius: 50%;
 		border: 0.8rem solid var(--background-color);
@@ -341,7 +355,7 @@
 	}
 
 	.gridlock-img {
-		max-width: 100%;
+		width: 100%;
 		border-radius: 0.75rem;
 		transition: 0.1s;
 	}

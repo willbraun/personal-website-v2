@@ -1,42 +1,66 @@
+import reactAvif from '/src/assets/images/tech-logos/react-logo.png?w=150?avif';
+import reactWebp from '/src/assets/images/tech-logos/react-logo.png?w=150?webp';
+import react from '/src/assets/images/tech-logos/react-logo.png?w=150';
+
 export const techData = [
 	{
 		name: 'React',
-		img: 'react-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Svelte',
-		img: 'svelte-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'TypeScript',
-		img: 'typescript-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'HTML',
-		img: 'html-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'CSS',
-		img: 'css-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Bootstrap',
-		img: 'bootstrap-logo.webp'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Python',
-		img: 'python-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Django',
-		img: 'django-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Perl',
-		img: 'perl-logo.webp'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	},
 	{
 		name: 'Git',
-		img: 'git-logo.png'
+		avif: reactAvif,
+		webp: reactWebp,
+		fallback: react
 	}
 ];

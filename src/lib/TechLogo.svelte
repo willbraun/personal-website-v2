@@ -1,14 +1,20 @@
 <script lang="ts">
 	export let data: {
 		name: string;
-		img: string;
+		avif: any;
+		webp: any;
+		fallback: any;
 	};
 	export let index: number;
 </script>
 
 <div class="tech-logo" style="animation-delay: -{0.5 * index}s">
 	<div class="img-box">
-		<img src="/assets/images/tech-logos/{data.img}" alt="{data.name} logo" />
+		<picture>
+			<source srcset={data.avif} type="image/avif" />
+			<source srcset={data.webp} type="image/webp" />
+			<img src={data.fallback} alt="{data.name} logo" />
+		</picture>
 	</div>
 	<p>{data.name}</p>
 </div>
@@ -23,19 +29,20 @@
 	}
 
 	.img-box {
+		position: relative;
 		background-color: var(--accent-color);
 		border-radius: 50%;
 		width: 100%;
 		aspect-ratio: 1 / 1;
 		margin: 0 auto 0.5rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
-	img {
-		position: relative;
-		height: 60%;
+	.img-box img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 80%;
 	}
 
 	p {
