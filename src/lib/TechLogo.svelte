@@ -22,7 +22,7 @@
 		position: relative;
 		width: 20%;
 		max-width: 8rem;
-		margin: 1rem;
+		margin: 1rem 1rem 2rem;
 		animation: bob 3s ease-in-out infinite;
 	}
 
@@ -41,10 +41,13 @@
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 		height: 60%;
-		max-width: 60%;
+		max-width: 100%;
 	}
 
 	p {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 		text-align: center;
 		font-size: 1.4rem;
 		font-family: 'Bakbak One', 'Arial', 'sans-serif';
@@ -60,6 +63,18 @@
 		}
 		100% {
 			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 576px) {
+		p {
+			font-size: 1rem;
+		}
+	}
+
+	@media (min-width: 576px) and (max-width: 768px) {
+		p {
+			font-size: 1.2rem;
 		}
 	}
 </style>

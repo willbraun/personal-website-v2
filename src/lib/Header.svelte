@@ -129,6 +129,7 @@
 	}
 
 	.mobile-menu-button img {
+		height: 100%;
 		width: 100%;
 		filter: var(--background-color);
 		transition: 0.1s;

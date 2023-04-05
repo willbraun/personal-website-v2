@@ -3,7 +3,7 @@ import svelte from '/src/assets/images/tech-logos/svelte-logo.png?w=150&format=a
 import typescript from '/src/assets/images/tech-logos/typescript-logo.png?w=150&format=avif;webp;png&picture';
 import html from '/src/assets/images/tech-logos/html-logo.png?w=150&format=avif;webp;png&picture';
 import css from '/src/assets/images/tech-logos/css-logo.png?w=150&format=avif;webp;png&picture';
-import bootstrap from '/src/assets/images/tech-logos/bootstrap-logo.png?w=150&format=avif;webp;png&picture';
+import bootstrap from '/src/assets/images/tech-logos/bootstrap-logo.png?w=125&h=100&format=avif;webp;png&picture';
 import python from '/src/assets/images/tech-logos/python-logo.png?w=150&format=avif;webp;png&picture';
 import django from '/src/assets/images/tech-logos/django-logo.png?w=150&format=avif;webp;png&picture';
 import perl from '/src/assets/images/tech-logos/perl-logo.png?w=150&format=avif;webp;png&picture';

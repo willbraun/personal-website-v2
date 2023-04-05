@@ -28,7 +28,7 @@
 
 	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
 	import downArrow from '/src/assets/images/angles-down-solid.svg';
-	import gridlock from '/src/assets/images/gridlock-image.png?format=avif;webp;png&picture';
+	import gridlock from '/src/assets/images/gridlock-image.png?w=776&h=1478&format=avif;webp;png&picture';
 	import github from '/src/assets/images/github.svg';
 	import copy from '/src/assets/images/copy-icon.svg';
 	import check from '/src/assets/images/check-solid.svg';
@@ -38,10 +38,7 @@
 
 	let scrollTo: Function;
 	onMount(() => {
-		scrollTo = (selector: string): void => {
-			const element = document.querySelector(selector);
-			!!element && element.scrollIntoView(true);
-		};
+		scrollTo = (selector: string): void => document.querySelector(selector)?.scrollIntoView(true);
 	});
 
 	let showCheck: boolean = false;
@@ -323,6 +320,7 @@
 
 	.down-arrow,
 	.up-arrow {
+		height: 3rem;
 		width: 3rem;
 		border: none;
 		background-color: transparent;
