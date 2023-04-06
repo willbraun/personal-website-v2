@@ -344,6 +344,12 @@
 	.up-arrow img {
 		width: 100%;
 		filter: var(--svg-filter-accent);
+		transition: 0.1s;
+	}
+
+	.down-arrow img:hover,
+	.up-arrow img:hover {
+		scale: 1.1;
 	}
 
 	.about p {
