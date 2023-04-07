@@ -1,7 +1,7 @@
 <script>
 	import './../normalize.css';
 	import './../scss/main.scss';
-	import '../app.css';
+	import './../app.css';
 </script>
 
 <slot />
