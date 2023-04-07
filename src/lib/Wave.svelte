@@ -27,12 +27,9 @@
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		bottom: 10vh;
-		width: 100vw;
-		height: 15vh;
-		margin-bottom: -7px;
-		min-height: 100px;
-		max-height: 150px;
+		bottom: calc(var(--home-bottom-height) - 5px);
+		width: 105vw;
+		height: 12vh;
 	}
 
 	.parallax > use {
@@ -64,10 +61,10 @@
 		}
 	}
 
-	@media (max-width: 992px) {
+	@media (max-width: 576px) {
 		.waves {
-			height: 40px;
-			min-height: 40px;
+			bottom: var(--home-bottom-height-mobile);
+			height: 8vh;
 		}
 	}
 </style>

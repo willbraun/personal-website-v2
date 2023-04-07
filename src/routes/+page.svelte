@@ -4,7 +4,7 @@
 	import Footer from './../lib/Footer.svelte';
 </script>
 
-<div>
+<div class="app">
 	<Header />
 	<Main />
 	<Footer />

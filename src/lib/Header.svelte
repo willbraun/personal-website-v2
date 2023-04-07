@@ -62,7 +62,7 @@
 		position: fixed;
 		top: 0;
 		height: var(--header-height);
-		width: 100%;
+		width: 100vw;
 		z-index: 10;
 	}
 
@@ -139,8 +139,17 @@
 		filter: var(--svg-filter-accent);
 	}
 
+	.mobile-menu,
+	.mobile-nav {
+		overflow-x: hidden;
+	}
+
+	.mobile-nav ul {
+		padding: 0;
+	}
+
 	.mobile-nav li {
-		font-size: 4rem;
+		font-size: 3rem;
 		font-family: 'Bakbak One';
 	}
 
