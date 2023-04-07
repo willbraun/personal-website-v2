@@ -85,11 +85,11 @@
 		<h2>About</h2>
 		<p>
 			I'm passionate about making ideas come to life on the web. While working as a software
-			consultant, I learned firsthand the power of code and how it could be used to improve lives of
-			millions. I dabbled with JavaScript in my spare time and I was hooked, which jumpstarted me on
-			a life-changing journey to code professionally. Now, I am a software engineer at SIOS
-			Technology Corp., where I work on high availability and disaster recovery solutions for cloud
-			systems.
+			consultant, I learned firsthand the power of code and how it could be used to improve the
+			lives of millions. I dabbled with JavaScript in my spare time and I was hooked, which
+			jumpstarted me on a life-changing journey to code professionally. Now, I am a software
+			engineer at SIOS Technology Corp., where I work on high availability and disaster recovery
+			solutions for cloud systems.
 		</p>
 		<h3>Skills</h3>
 		<div class="skills">
