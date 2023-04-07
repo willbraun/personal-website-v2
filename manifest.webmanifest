@@ -1,0 +1,7 @@
+{
+	"name": "Will Braun",
+	"icons": [
+		{ "src": "/static/favicon-192x192.png", "type": "image/png", "sizes": "192x192" },
+		{ "src": "/static/favicon-512x512.png", "type": "image/png", "sizes": "512x512" }
+	]
+}
