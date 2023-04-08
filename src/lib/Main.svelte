@@ -85,11 +85,10 @@
 		<h2>About</h2>
 		<p>
 			I'm passionate about making ideas come to life on the web. While working as a software
-			consultant, I learned firsthand the power of code and how it could be used to improve the
-			lives of millions. I dabbled with JavaScript in my spare time and I was hooked, which
-			jumpstarted me on a life-changing journey to code professionally. Now, I am a software
-			engineer at SIOS Technology Corp., where I work on high availability and disaster recovery
-			solutions for cloud systems.
+			consultant, I learned firsthand the power of code and how it can be used to improve the lives
+			of millions. I dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a
+			life-changing journey to code professionally. Now, I am a software engineer at SIOS Technology
+			Corp., where I work on high availability and disaster recovery solutions for cloud systems.
 		</p>
 		<h3>Skills</h3>
 		<div class="skills">
@@ -155,12 +154,13 @@
 		<article class="project">
 			<h3>OpenSeat</h3>
 			<p>
-				When I moved to Greenville, SC, I was working remotely and it was tough to meet new people.
-				I was inspired to create a solution to connect people based on their unique interests. With
-				OpenSeat, you can create events to do any activity you'd like with a small group. You can
-				also search for and sign up for events that others have posted. It is a full stack app that
-				I built using React, Django, Google and Twilio APIs, and deployed to Heroku. This was my
-				final project at Carolina Code School, and I've included a video demo of the app below.
+				When I moved to Greenville, SC, I was working remotely and found it tough to meet new
+				people. I was inspired to create a solution to connect people based on their unique
+				interests. With OpenSeat, you can create events to do any activity you'd like with a small
+				group. You can also search for and sign up for events that others have posted. It is a full
+				stack app that I built with React, Django, Google and Twilio APIs, and deployed to Heroku.
+				This was my final project at Carolina Code School, and I've included a video demo of the app
+				below.
 			</p>
 			<div class="project-buttons">
 				<a
@@ -538,8 +538,8 @@
 
 		.up-arrow,
 		.down-arrow {
-			height: 12vw;
-			width: 12vw;
+			height: 15vw;
+			width: 15vw;
 		}
 
 		.down-arrow {
@@ -547,7 +547,7 @@
 		}
 
 		.down-arrow-box {
-			height: calc(var(--home-bottom-height-mobile) + 10px);
+			height: var(--home-bottom-height-mobile);
 			bottom: -10px;
 		}
 
@@ -594,7 +594,7 @@
 		}
 
 		.down-arrow-box {
-			height: calc(var(--home-bottom-height) + 10px);
+			height: var(--home-bottom-height);
 		}
 
 		.title {

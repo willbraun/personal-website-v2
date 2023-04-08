@@ -20,16 +20,29 @@
 			<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,28,85,1)" />
 		</g>
 	</svg>
+	<svg class="bottom">
+		<rect width="100%" height="2vh" fill="rgba(0,28,85,1)" />
+	</svg>
 </div>
 
 <style>
-	.waves {
+	div {
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		bottom: calc(var(--home-bottom-height) - 5px);
-		width: 105vw;
-		height: 12vh;
+		bottom: var(--home-bottom-height);
+		width: 101vw;
+		height: 11.9vh;
+	}
+
+	.waves {
+		width: 100%;
+		height: 10vh;
+	}
+
+	.bottom {
+		width: 100%;
+		height: fit-content;
 	}
 
 	.parallax > use {
@@ -62,8 +75,8 @@
 	}
 
 	@media (max-width: 576px) {
-		.waves {
-			bottom: var(--home-bottom-height-mobile);
+		div {
+			bottom: calc(var(--home-bottom-height-mobile) + 1vh);
 			height: 8vh;
 		}
 	}
