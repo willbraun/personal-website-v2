@@ -118,11 +118,7 @@
 						beat it!
 					</p>
 					<div class="project-buttons">
-						<a
-							href="https://willbraun.github.io/gridlock/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer">
 							<button class="button-primary" type="button">
 								<p>Play Gridlock</p>
 							</button>
@@ -140,7 +136,7 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-md-4 gridlock-play">
-					<a class="gridlock-link" href="https://willbraun.github.io/gridlock/" target="_blank">
+					<a class="gridlock-link" href="https://gridlock.willbraun.dev" target="_blank">
 						<picture>
 							<source srcset={gridlockSources.avif} type="image/avif" />
 							<source srcset={gridlockSources.webp} type="image/webp" />
