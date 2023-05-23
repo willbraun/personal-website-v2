@@ -21,7 +21,7 @@
 		</g>
 	</svg>
 	<svg class="bottom">
-		<rect width="100%" height="2vh" fill="rgba(0,28,85,1)" />
+		<rect width="100%" height="100%" fill="rgba(0,28,85,1)" />
 	</svg>
 </div>
 
@@ -42,7 +42,8 @@
 
 	.bottom {
 		width: 100%;
-		height: fit-content;
+		height: 15vh;
+		transform: translateY(-1px);
 	}
 
 	.parallax > use {

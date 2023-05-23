@@ -591,6 +591,7 @@
 
 		.down-arrow-box {
 			height: var(--home-bottom-height);
+			bottom: -10px;
 		}
 
 		.title {
