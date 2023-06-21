@@ -10447,6 +10447,6 @@ a {
 @font-face {
 	font-family: 'Bakbak One';
 	font-style: normal;
-	font-display: fallback;
+	font-display: block;
 	src: url('/_app/immutable/assets/BakbakOne-Regular.d187facf.ttf');
 }
