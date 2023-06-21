@@ -67,6 +67,6 @@ a {
 @font-face {
 	font-family: 'Bakbak One';
 	font-style: normal;
-	font-display: fallback;
+	font-display: block;
 	src: url('/src/assets/fonts/BakbakOne-Regular.ttf');
 }

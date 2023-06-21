@@ -106,9 +106,8 @@
 					<p>
 						Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I
 						thought it would be fun to create a digital version. The goal is to connect 4 numbers in
-						a row, using a factor of the number from your opponent's previous turn. It is a
-						serverless app I built with React and deployed to Github Pages, so it can be played
-						offline once loaded. I designed it for mobile, but it will work on any size screen.
+						a row, using a factor of the number from your opponent's previous turn. I designed the
+						app to fit any size screen, built it using React, and deployed it to Github Pages.
 					</p>
 					<br />
 					<p>
