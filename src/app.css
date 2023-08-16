@@ -21,6 +21,12 @@
 		contrast(101%);
 	--svg-filter-999999: invert(61%) sepia(79%) saturate(5%) hue-rotate(333deg) brightness(86%)
 		contrast(85%);
+	--sky-gradient: linear-gradient(
+		0deg,
+		rgba(255, 122, 237, 1) 0%,
+		rgba(255, 220, 165, 1) 50%,
+		var(--sky-blue) 100%
+	);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
