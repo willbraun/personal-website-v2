@@ -4,4 +4,4 @@ This site showcases my portfolio projects, blog, and provides relevant links. I 
 
 ## Technologies Used
 
-SvelteKit, TypeScript, HTML, CSS, SCSS, Bootstrap, Vite Image Tools, Github Pages
+SvelteKit, TypeScript, HTML, CSS, SCSS, Bootstrap, Vite Image Tools, Netlify
