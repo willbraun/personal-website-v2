@@ -107,7 +107,7 @@
 						Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I
 						thought it would be fun to create a digital version. The goal is to connect 4 numbers in
 						a row, using a factor of the number from your opponent's previous turn. I designed the
-						app to fit any size screen, built it using React, and deployed it to Github Pages.
+						app to fit any size screen, built it using React, and deployed it to Netlify.
 					</p>
 					<br />
 					<p>
@@ -157,6 +157,16 @@
 				This was my final project at Carolina Code School, and I've included a video demo of the app
 				below.
 			</p>
+			<div class="video-wrapper" style="position: relative; padding-bottom: 62.5%; height: 0;">
+				<iframe
+					title="Open Seat Loom video demo"
+					src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a"
+					frameborder="0"
+					allowfullscreen
+					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+					loading="lazy"
+				/>
+			</div>
 			<div class="project-buttons">
 				<a
 					href="https://github.com/willbraun/openseat-app"
@@ -169,15 +179,34 @@
 					</button>
 				</a>
 			</div>
-			<div class="openseat-demo" style="position: relative; padding-bottom: 62.5%; height: 0;">
-				<iframe
-					title="Open Seat Loom video demo"
-					src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a"
-					frameborder="0"
-					allowfullscreen
-					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-					loading="lazy"
-				/>
+		</article>
+		<article class="project">
+			<h3>3D Dice Roll</h3>
+			<p>
+				With this app, you can roll two six-sided dice and watch them bounce around. I used
+				SvelteKit, Three.js, Threlte, the Rapier Physics Engine, and deployed it to Netlify.
+			</p>
+			<div class="video-wrapper">
+				<video width="100%" muted autoplay loop playsinline>
+					<source src="3d-dice-roll.mp4" type="video/mp4" />
+				</video>
+			</div>
+			<div class="project-buttons">
+				<a href="https://dice.willbraun.dev" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>Roll Dice</p>
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/3d-dice-roll"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
 			</div>
 		</article>
 	</section>
@@ -366,6 +395,10 @@
 		justify-content: center;
 	}
 
+	.project {
+		margin: 0 0 2rem;
+	}
+
 	.gridlock-play {
 		position: relative;
 		overflow: hidden;
@@ -420,8 +453,12 @@
 		margin-left: 0.5rem;
 	}
 
-	.openseat-demo {
+	.video-wrapper {
 		margin: 2rem 0;
+	}
+
+	video {
+		border-radius: 0.5rem;
 	}
 
 	.button-primary {
