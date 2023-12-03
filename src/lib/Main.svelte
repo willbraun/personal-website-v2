@@ -84,13 +84,13 @@
 	<section class="scroll-point about">
 		<h2>About</h2>
 		<p>
-			I'm passionate about making ideas come to life on the web. While working as a software
-			consultant, I learned firsthand the power of code and how it can be used to improve the lives
-			of millions. I dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a
-			life-changing journey to code professionally. Now, I am a software engineer at SIOS Technology
-			Corp., where I work on high availability and disaster recovery solutions for cloud systems.
+			I'm passionate about making ideas come to life on the web. While working as a consultant, I
+			learned firsthand the power of code and how it can be used to improve the lives of millions. I
+			dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a life-changing
+			journey to code professionally. Now, I am a software engineer at SIOS Technology Corp., where
+			I work on high availability and disaster recovery solutions for cloud systems.
 		</p>
-		<h3>Skills</h3>
+		<h3>Skills and Technologies</h3>
 		<div class="skills">
 			{#each techData as data, index}
 				<TechLogo {data} {index} />
@@ -393,6 +393,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+
+		/* enable below if one skill in last row */
+		max-width: 700px;
+		margin: auto;
 	}
 
 	.project {

@@ -41,7 +41,8 @@
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 		height: 60%;
-		max-width: 100%;
+		max-width: 70%;
+		object-fit: contain;
 	}
 
 	p {
