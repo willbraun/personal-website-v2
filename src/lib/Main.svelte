@@ -28,12 +28,14 @@
 
 	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
 	import downArrow from '/src/assets/images/angles-down-solid.svg';
+	import racquetRivals from '/src/assets/images/racquet-rivals-image2.png?format=avif;webp;png&picture';
 	import gridlock from '/src/assets/images/gridlock-image.png?w=776&h=1478&format=avif;webp;png&picture';
 	import github from '/src/assets/images/github.svg';
 	import copy from '/src/assets/images/copy-icon.svg';
 	import check from '/src/assets/images/check-solid.svg';
 
 	const headshotSources = getImageSources(headshot);
+	const racquetRivalsSources = getImageSources(racquetRivals);
 	const gridlockSources = getImageSources(gridlock);
 
 	let scrollTo: Function;
@@ -100,6 +102,80 @@
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
+			<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
+				<h3>RacquetRivals.com</h3>
+			</a>
+			<p>
+				My wife and I used to create brackets by hand for the last 16 players of the four major
+				tennis tournaments. We had so much fun I made it into a web app, like March Madness. Sign
+				up, add your predictions during a major tournament, and you'll be awarded points by round
+				for correct choices. You can compare scores with your friends along the way. The frontend is
+				built with SvelteKit hosted on Netlify, and the backend is Pocketbase hosted on a Digital
+				Ocean Linux Droplet.
+			</p>
+			<picture>
+				<source srcset={racquetRivalsSources.avif} type="image/avif" />
+				<source srcset={racquetRivalsSources.webp} type="image/webp" />
+				<img
+					class="racquet-rivals-img"
+					src={racquetRivalsSources.png}
+					alt="Racquet Rivals"
+					loading="lazy"
+				/>
+			</picture>
+			<div class="project-buttons">
+				<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>Visit RacquetRivals.com</p>
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/racquet-rivals"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
+			<h3>OpenSeat</h3>
+			<p>
+				When I moved to Greenville, SC, I was working remotely and found it tough to meet new
+				people. I was inspired to create a solution to connect people based on their unique
+				interests. With OpenSeat, you can create events to do any activity you'd like with a small
+				group. You can also search for and sign up for events that others have posted. It is a full
+				stack app that I built with React, Django, Google and Twilio APIs, and deployed to Heroku.
+				This was my final project at Carolina Code School, and I've included a video demo of the app
+				below.
+			</p>
+			<div class="video-wrapper" style="position: relative; padding-bottom: 62.5%; height: 0;">
+				<iframe
+					title="Open Seat Loom video demo"
+					src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a"
+					frameborder="0"
+					allowfullscreen
+					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+					loading="lazy"
+				/>
+			</div>
+			<div class="project-buttons">
+				<a
+					href="https://github.com/willbraun/openseat-app"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
 			<h3>Gridlock</h3>
 			<div class="row gridlock-grid">
 				<div class="col-xs-12 col-md-8 gridlock-info">
@@ -144,40 +220,6 @@
 						<div class="overlay">Click to play</div>
 					</a>
 				</div>
-			</div>
-		</article>
-		<article class="project">
-			<h3>OpenSeat</h3>
-			<p>
-				When I moved to Greenville, SC, I was working remotely and found it tough to meet new
-				people. I was inspired to create a solution to connect people based on their unique
-				interests. With OpenSeat, you can create events to do any activity you'd like with a small
-				group. You can also search for and sign up for events that others have posted. It is a full
-				stack app that I built with React, Django, Google and Twilio APIs, and deployed to Heroku.
-				This was my final project at Carolina Code School, and I've included a video demo of the app
-				below.
-			</p>
-			<div class="video-wrapper" style="position: relative; padding-bottom: 62.5%; height: 0;">
-				<iframe
-					title="Open Seat Loom video demo"
-					src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a"
-					frameborder="0"
-					allowfullscreen
-					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-					loading="lazy"
-				/>
-			</div>
-			<div class="project-buttons">
-				<a
-					href="https://github.com/willbraun/openseat-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button class="button-primary github-button" type="button">
-						<p>GitHub</p>
-						<img src={github} alt="github icon" loading="lazy" />
-					</button>
-				</a>
 			</div>
 		</article>
 		<article class="project">
@@ -403,6 +445,12 @@
 		margin: 0 0 2rem;
 	}
 
+	.racquet-rivals-img {
+		width: 100%;
+		border-radius: 0.75rem;
+		margin-top: 2rem;
+	}
+
 	.gridlock-play {
 		position: relative;
 		overflow: hidden;
@@ -510,10 +558,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
-	}
-
-	.contact-info > * {
-		margin-bottom: 1rem;
+		gap: 1rem;
 	}
 
 	.copy-email {

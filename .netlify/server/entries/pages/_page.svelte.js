@@ -282,7 +282,7 @@ const Wave = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const TechLogo_svelte_svelte_type_style_lang = "";
 const css$3 = {
-  code: ".tech-logo.svelte-1qsf8k3.svelte-1qsf8k3{position:relative;width:20%;max-width:8rem;margin:1rem 1rem 2rem;animation:svelte-1qsf8k3-bob 3s ease-in-out infinite}.img-box.svelte-1qsf8k3.svelte-1qsf8k3{position:relative;background-color:var(--accent-color);border-radius:50%;width:100%;aspect-ratio:1 / 1;margin:0 auto 0.5rem}.img-box.svelte-1qsf8k3 img.svelte-1qsf8k3{position:absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%);height:60%;max-width:100%}p.svelte-1qsf8k3.svelte-1qsf8k3{position:absolute;left:50%;transform:translateX(-50%);text-align:center;font-size:1.4rem;font-family:'Bakbak One', 'Arial', 'sans-serif';color:var(--accent-color)}@keyframes svelte-1qsf8k3-bob{0%{transform:translateY(0)}50%{transform:translateY(7%)}100%{transform:translateY(0)}}@media(max-width: 576px){p.svelte-1qsf8k3.svelte-1qsf8k3{font-size:1rem}}@media(min-width: 576px) and (max-width: 768px){p.svelte-1qsf8k3.svelte-1qsf8k3{font-size:1.2rem}}",
+  code: ".tech-logo.svelte-1aambkv.svelte-1aambkv{position:relative;width:20%;max-width:8rem;margin:1rem 1rem 2rem;animation:svelte-1aambkv-bob 3s ease-in-out infinite}.img-box.svelte-1aambkv.svelte-1aambkv{position:relative;background-color:var(--accent-color);border-radius:50%;width:100%;aspect-ratio:1 / 1;margin:0 auto 0.5rem}.img-box.svelte-1aambkv img.svelte-1aambkv{position:absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%);height:60%;max-width:70%;object-fit:contain}p.svelte-1aambkv.svelte-1aambkv{position:absolute;left:50%;transform:translateX(-50%);text-align:center;font-size:1.4rem;font-family:'Bakbak One', 'Arial', 'sans-serif';color:var(--accent-color)}@keyframes svelte-1aambkv-bob{0%{transform:translateY(0)}50%{transform:translateY(7%)}100%{transform:translateY(0)}}@media(max-width: 576px){p.svelte-1aambkv.svelte-1aambkv{font-size:1rem}}@media(min-width: 576px) and (max-width: 768px){p.svelte-1aambkv.svelte-1aambkv{font-size:1.2rem}}",
   map: null
 };
 const TechLogo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -293,13 +293,13 @@ const TechLogo = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   if ($$props.index === void 0 && $$bindings.index && index !== void 0)
     $$bindings.index(index);
   $$result.css.add(css$3);
-  return `<div class="tech-logo svelte-1qsf8k3" style="${"animation-delay: -" + escape(0.5 * index, true) + "s"}"><div class="img-box svelte-1qsf8k3"><picture><source${add_attribute("srcset", data.image.sources.avif[0].src, 0)} type="image/avif">
+  return `<div class="tech-logo svelte-1aambkv" style="${"animation-delay: -" + escape(0.5 * index, true) + "s"}"><div class="img-box svelte-1aambkv"><picture><source${add_attribute("srcset", data.image.sources.avif[0].src, 0)} type="image/avif">
 			<source${add_attribute("srcset", data.image.sources.webp[0].src, 0)} type="image/webp">
-			<img${add_attribute("src", data.image.fallback.src, 0)} alt="${escape(data.name, true) + " logo"}" class="svelte-1qsf8k3"></picture></div>
-	<p class="svelte-1qsf8k3">${escape(data.name)}</p>
+			<img${add_attribute("src", data.image.fallback.src, 0)} alt="${escape(data.name, true) + " logo"}" class="svelte-1aambkv"></picture></div>
+	<p class="svelte-1aambkv">${escape(data.name)}</p>
 </div>`;
 });
-const sources$e = {
+const sources$i = {
   avif: [
     {
       src: "/_app/immutable/assets/react-logo.d8725324.avif",
@@ -313,16 +313,16 @@ const sources$e = {
     }
   ]
 };
-const fallback$e = {
+const fallback$i = {
   src: "/_app/immutable/assets/react-logo.b38f0a01.png",
   w: 150,
   h: 150
 };
 const react = {
-  sources: sources$e,
-  fallback: fallback$e
+  sources: sources$i,
+  fallback: fallback$i
 };
-const sources$d = {
+const sources$h = {
   avif: [
     {
       src: "/_app/immutable/assets/redux-logo-1.43eded84.avif",
@@ -336,16 +336,16 @@ const sources$d = {
     }
   ]
 };
-const fallback$d = {
+const fallback$h = {
   src: "/_app/immutable/assets/redux-logo-1.e654a501.png",
   w: 150,
   h: 150
 };
 const redux = {
-  sources: sources$d,
-  fallback: fallback$d
+  sources: sources$h,
+  fallback: fallback$h
 };
-const sources$c = {
+const sources$g = {
   avif: [
     {
       src: "/_app/immutable/assets/svelte-logo.d4c95629.avif",
@@ -359,16 +359,16 @@ const sources$c = {
     }
   ]
 };
-const fallback$c = {
+const fallback$g = {
   src: "/_app/immutable/assets/svelte-logo.7f8c670c.png",
   w: 150,
   h: 150
 };
 const svelte = {
-  sources: sources$c,
-  fallback: fallback$c
+  sources: sources$g,
+  fallback: fallback$g
 };
-const sources$b = {
+const sources$f = {
   avif: [
     {
       src: "/_app/immutable/assets/typescript-logo.b5f7aef7.avif",
@@ -382,16 +382,16 @@ const sources$b = {
     }
   ]
 };
-const fallback$b = {
+const fallback$f = {
   src: "/_app/immutable/assets/typescript-logo.99d3357b.png",
   w: 150,
   h: 150
 };
 const typescript = {
-  sources: sources$b,
-  fallback: fallback$b
+  sources: sources$f,
+  fallback: fallback$f
 };
-const sources$a = {
+const sources$e = {
   avif: [
     {
       src: "/_app/immutable/assets/html-logo.5679b43b.avif",
@@ -405,16 +405,16 @@ const sources$a = {
     }
   ]
 };
-const fallback$a = {
+const fallback$e = {
   src: "/_app/immutable/assets/html-logo.c3a14e48.png",
   w: 150,
   h: 150
 };
 const html = {
-  sources: sources$a,
-  fallback: fallback$a
+  sources: sources$e,
+  fallback: fallback$e
 };
-const sources$9 = {
+const sources$d = {
   avif: [
     {
       src: "/_app/immutable/assets/css-logo.8546377b.avif",
@@ -428,16 +428,39 @@ const sources$9 = {
     }
   ]
 };
-const fallback$9 = {
+const fallback$d = {
   src: "/_app/immutable/assets/css-logo.35b7e27f.png",
   w: 150,
   h: 150
 };
 const css$2 = {
-  sources: sources$9,
-  fallback: fallback$9
+  sources: sources$d,
+  fallback: fallback$d
 };
-const sources$8 = {
+const sources$c = {
+  avif: [
+    {
+      src: "/_app/immutable/assets/tailwind-logo-1.6d4237c1.avif",
+      w: 150
+    }
+  ],
+  webp: [
+    {
+      src: "/_app/immutable/assets/tailwind-logo-1.9056bb31.webp",
+      w: 150
+    }
+  ]
+};
+const fallback$c = {
+  src: "/_app/immutable/assets/tailwind-logo-1.238082f4.png",
+  w: 150,
+  h: 90.0146484375
+};
+const tailwind = {
+  sources: sources$c,
+  fallback: fallback$c
+};
+const sources$b = {
   avif: [
     {
       src: "/_app/immutable/assets/scss-logo.b3389165.avif",
@@ -451,16 +474,16 @@ const sources$8 = {
     }
   ]
 };
-const fallback$8 = {
+const fallback$b = {
   src: "/_app/immutable/assets/scss-logo.e5eb04bf.png",
   w: 150,
   h: 150
 };
 const scss = {
-  sources: sources$8,
-  fallback: fallback$8
+  sources: sources$b,
+  fallback: fallback$b
 };
-const sources$7 = {
+const sources$a = {
   avif: [
     {
       src: "/_app/immutable/assets/bootstrap-logo.3aedc522.avif",
@@ -474,16 +497,39 @@ const sources$7 = {
     }
   ]
 };
-const fallback$7 = {
+const fallback$a = {
   src: "/_app/immutable/assets/bootstrap-logo.d1a06c53.png",
   w: 125,
   h: 100
 };
 const bootstrap = {
-  sources: sources$7,
-  fallback: fallback$7
+  sources: sources$a,
+  fallback: fallback$a
 };
-const sources$6 = {
+const sources$9 = {
+  avif: [
+    {
+      src: "/_app/immutable/assets/go-logo-1.876b35ca.avif",
+      w: 150
+    }
+  ],
+  webp: [
+    {
+      src: "/_app/immutable/assets/go-logo-1.9ba33e63.webp",
+      w: 150
+    }
+  ]
+};
+const fallback$9 = {
+  src: "/_app/immutable/assets/go-logo-1.3edaefc9.png",
+  w: 150,
+  h: 56.3671875
+};
+const go = {
+  sources: sources$9,
+  fallback: fallback$9
+};
+const sources$8 = {
   avif: [
     {
       src: "/_app/immutable/assets/python-logo.6cb133ec.avif",
@@ -497,16 +543,16 @@ const sources$6 = {
     }
   ]
 };
-const fallback$6 = {
+const fallback$8 = {
   src: "/_app/immutable/assets/python-logo.af72cf98.png",
   w: 150,
   h: 150
 };
 const python = {
-  sources: sources$6,
-  fallback: fallback$6
+  sources: sources$8,
+  fallback: fallback$8
 };
-const sources$5 = {
+const sources$7 = {
   avif: [
     {
       src: "/_app/immutable/assets/django-logo.c2f5fe95.avif",
@@ -520,16 +566,16 @@ const sources$5 = {
     }
   ]
 };
-const fallback$5 = {
+const fallback$7 = {
   src: "/_app/immutable/assets/django-logo.57820ce7.png",
   w: 150,
   h: 190.67796610169492
 };
 const django = {
-  sources: sources$5,
-  fallback: fallback$5
+  sources: sources$7,
+  fallback: fallback$7
 };
-const sources$4 = {
+const sources$6 = {
   avif: [
     {
       src: "/_app/immutable/assets/perl-logo.8a0cf479.avif",
@@ -543,16 +589,16 @@ const sources$4 = {
     }
   ]
 };
-const fallback$4 = {
+const fallback$6 = {
   src: "/_app/immutable/assets/perl-logo.baea6a54.png",
   w: 150,
   h: 169.0625
 };
 const perl = {
-  sources: sources$4,
-  fallback: fallback$4
+  sources: sources$6,
+  fallback: fallback$6
 };
-const sources$3 = {
+const sources$5 = {
   avif: [
     {
       src: "/_app/immutable/assets/git-logo.d6f790a5.avif",
@@ -566,16 +612,16 @@ const sources$3 = {
     }
   ]
 };
-const fallback$3 = {
+const fallback$5 = {
   src: "/_app/immutable/assets/git-logo.d136c15e.png",
   w: 150,
   h: 150
 };
 const git = {
-  sources: sources$3,
-  fallback: fallback$3
+  sources: sources$5,
+  fallback: fallback$5
 };
-const sources$2 = {
+const sources$4 = {
   avif: [
     {
       src: "/_app/immutable/assets/linux-logo.24ed80cc.avif",
@@ -589,14 +635,37 @@ const sources$2 = {
     }
   ]
 };
-const fallback$2 = {
+const fallback$4 = {
   src: "/_app/immutable/assets/linux-logo.76bf3871.png",
   w: 150,
   h: 173.7556561085973
 };
 const linux = {
-  sources: sources$2,
-  fallback: fallback$2
+  sources: sources$4,
+  fallback: fallback$4
+};
+const sources$3 = {
+  avif: [
+    {
+      src: "/_app/immutable/assets/web-scraping-logo.ffb1f71a.avif",
+      w: 150
+    }
+  ],
+  webp: [
+    {
+      src: "/_app/immutable/assets/web-scraping-logo.f90aa466.webp",
+      w: 150
+    }
+  ]
+};
+const fallback$3 = {
+  src: "/_app/immutable/assets/web-scraping-logo.80125c21.png",
+  w: 150,
+  h: 150
+};
+const webScraping = {
+  sources: sources$3,
+  fallback: fallback$3
 };
 const techData = [
   {
@@ -624,12 +693,20 @@ const techData = [
     image: css$2
   },
   {
+    name: "Tailwind",
+    image: tailwind
+  },
+  {
     name: "SCSS",
     image: scss
   },
   {
     name: "Bootstrap",
     image: bootstrap
+  },
+  {
+    name: "Go",
+    image: go
   },
   {
     name: "Python",
@@ -650,9 +727,13 @@ const techData = [
   {
     name: "Linux",
     image: linux
+  },
+  {
+    name: "Web Scraping",
+    image: webScraping
   }
 ];
-const sources$1 = {
+const sources$2 = {
   avif: [
     {
       src: "/_app/immutable/assets/will-braun-headshot-min.608ae1d3.avif",
@@ -666,16 +747,39 @@ const sources$1 = {
     }
   ]
 };
-const fallback$1 = {
+const fallback$2 = {
   src: "/_app/immutable/assets/will-braun-headshot-min.4d5d1d4f.png",
   w: 650,
   h: 650
 };
 const headshot = {
+  sources: sources$2,
+  fallback: fallback$2
+};
+const downArrow = "/_app/immutable/assets/angles-down-solid.0d9e0d79.svg";
+const sources$1 = {
+  avif: [
+    {
+      src: "/_app/immutable/assets/racquet-rivals-image2.1fcc6108.avif",
+      w: 2880
+    }
+  ],
+  webp: [
+    {
+      src: "/_app/immutable/assets/racquet-rivals-image2.d2462b70.webp",
+      w: 2880
+    }
+  ]
+};
+const fallback$1 = {
+  src: "/_app/immutable/assets/racquet-rivals-image2.0679b51c.png",
+  w: 2880,
+  h: 1508
+};
+const racquetRivals = {
   sources: sources$1,
   fallback: fallback$1
 };
-const downArrow = "/_app/immutable/assets/angles-down-solid.0d9e0d79.svg";
 const sources = {
   avif: [
     {
@@ -704,7 +808,7 @@ const copy = "/_app/immutable/assets/copy-icon.638dff09.svg";
 const check = "/_app/immutable/assets/check-solid.0912469d.svg";
 const Main_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: "main.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;top:0;width:100%;background-color:var(--background-color);overflow:hidden}section.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:first-child{background:linear-gradient(\n			0deg,\n			rgba(255, 122, 237, 1) 0%,\n			rgba(255, 220, 165, 1) 50%,\n			var(--sky-blue) 100%\n		);margin-bottom:2rem}section.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:not(:first-child){width:100%;max-width:992px;padding:0 var(--min-page-margin);margin:0 auto 3rem;scroll-margin:var(--header-height)}section.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr{font-size:1.5rem}.title.svelte-f49vzr .svelte-f49vzr.svelte-f49vzr{text-align:center;color:var(--background-color)}.title.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr{font-size:1.5rem}h1.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{font-size:clamp(4rem, 15vw, 6rem)}h2.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{font-size:4rem;margin:0 0 1rem}h3.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{font-size:2rem}h1.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,h2.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,h3.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{font-family:'Bakbak One', 'Georgia', 'sans-serif'}h2.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,h3.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,p.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{color:var(--accent-color)}.top.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;height:100vh}.top.svelte-f49vzr>.row.svelte-f49vzr.svelte-f49vzr{position:absolute;top:40%;transform:translateY(-40%);width:100%}.top.svelte-f49vzr>.row.svelte-f49vzr>div.svelte-f49vzr{position:relative}.img-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;width:375px;height:375px;margin:auto}.img-box.svelte-f49vzr>picture.svelte-f49vzr>img.svelte-f49vzr{width:100%;height:100%;border-radius:50%;border:0.8rem solid var(--background-color)}.down-arrow-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:absolute;bottom:0;width:100%;height:var(--home-bottom-height);background-color:var(--background-color)}.down-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,.up-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:3rem;width:3rem;border:none;background-color:transparent}.down-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;margin:0 auto;bottom:-2vh;left:50%;transform:translateX(-50%)}.up-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;margin:0 0 3rem;transform:translateX(-50%) rotate(180deg)}.down-arrow.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr,.up-arrow.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr{width:100%;filter:var(--svg-filter-accent);transition:0.1s}.down-arrow.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr:hover,.up-arrow.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr:hover{scale:1.1}.about.svelte-f49vzr h3.svelte-f49vzr.svelte-f49vzr{margin-top:1rem}.skills.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{display:flex;flex-wrap:wrap;justify-content:center}.project.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{margin:0 0 2rem}.gridlock-play.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;overflow:hidden;margin:1rem auto;max-width:350px}.gridlock-img.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{width:100%;border-radius:0.75rem;transition:0.1s}.gridlock-play.svelte-f49vzr:hover img.svelte-f49vzr.svelte-f49vzr{filter:blur(3px) brightness(50%)}.project-buttons.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{display:flex;justify-content:space-evenly;width:100%;margin-top:2rem}.overlay.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{width:100%;height:99%;position:absolute;top:0;left:0;opacity:0;vertical-align:center;color:#fff;font-size:2rem;font-weight:600;border-radius:0.75rem;display:flex;justify-content:center;align-items:center;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;transition:0.1s}.gridlock-play.svelte-f49vzr:hover .overlay.svelte-f49vzr.svelte-f49vzr{opacity:1}.github-button.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr{width:2rem;margin-left:0.5rem}.video-wrapper.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{margin:2rem 0}video.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{border-radius:0.5rem}.button-primary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{display:flex;justify-content:space-between;align-items:center;background-color:var(--accent-color)}.button-primary.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr{color:#000;font-size:1.4rem;font-weight:600}.button-secondary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{display:flex;justify-content:space-between;align-items:center;color:var(--accent-color);background-color:transparent}.button-primary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,.button-secondary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{padding:0.5rem 0.6rem;border:1px solid var(--accent-color);border-radius:0.5rem;height:3rem;transition:0.1s}.button-primary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:hover,.button-secondary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:hover{transform:scale(1.07)}.blog.svelte-f49vzr .button-primary.svelte-f49vzr.svelte-f49vzr{margin:2rem auto 0}.contact-info.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:center}.contact-info.svelte-f49vzr>.svelte-f49vzr.svelte-f49vzr{margin-bottom:1rem}.copy-email.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:relative}.copy-button.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{width:100%}.copy-button.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr{width:1.8rem;margin-left:1rem;filter:var(--svg-filter-accent)}.copied.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{position:absolute;top:50%;transform:translateY(-50%);right:-3rem;transition:0.1s}.copied.svelte-f49vzr img.svelte-f49vzr.svelte-f49vzr{width:2rem;filter:var(--svg-filter-accent)}.copied.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:not(.show-check){opacity:0}.copied.show-check.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{opacity:1}@media(max-width: 576px){.top.svelte-f49vzr>.row.svelte-f49vzr.svelte-f49vzr{position:absolute;top:20%;transform:translateY(-20%);width:100%}section.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr{font-size:1.3rem}.img-box.svelte-f49vzr>picture.svelte-f49vzr>img.svelte-f49vzr{border-width:0.5rem}.img-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:35vh;width:35vh}.up-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr,.down-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:15vw;width:15vw}.down-arrow.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{bottom:0}.down-arrow-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:var(--home-bottom-height-mobile);bottom:-10px}.button-primary.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr,.button-secondary.svelte-f49vzr p.svelte-f49vzr.svelte-f49vzr{font-size:1.2rem}.button-primary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:hover,.button-secondary.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr:hover{transform:none}.overlay.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{display:none}.gridlock-play.svelte-f49vzr:hover .overlay.svelte-f49vzr.svelte-f49vzr{opacity:0}.gridlock-play.svelte-f49vzr:hover img.svelte-f49vzr.svelte-f49vzr{filter:none}.gridlock-link.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{pointer-events:none}.copy-email.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{transform:scale(0.9)}}@media(min-width: 576px) and (max-width: 992px){.top.svelte-f49vzr>.row.svelte-f49vzr.svelte-f49vzr{top:0;transform:translateY(0)}.img-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:45vh;width:45vh}.down-arrow-box.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{height:var(--home-bottom-height);bottom:-10px}.title.svelte-f49vzr.svelte-f49vzr.svelte-f49vzr{margin:4vh 0 1rem}}",
+  code: "main.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;top:0;width:100%;background-color:var(--background-color);overflow:hidden}section.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:first-child{background:linear-gradient(\n			0deg,\n			rgba(255, 122, 237, 1) 0%,\n			rgba(255, 220, 165, 1) 50%,\n			var(--sky-blue) 100%\n		);margin-bottom:2rem}section.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:not(:first-child){width:100%;max-width:992px;padding:0 var(--min-page-margin);margin:0 auto 3rem;scroll-margin:var(--header-height)}section.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd{font-size:1.5rem}.title.svelte-158p0cd .svelte-158p0cd.svelte-158p0cd{text-align:center;color:var(--background-color)}.title.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd{font-size:1.5rem}h1.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{font-size:clamp(4rem, 15vw, 6rem)}h2.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{font-size:4rem;margin:0 0 1rem}h3.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{font-size:2rem}h1.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,h2.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,h3.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{font-family:'Bakbak One', 'Georgia', 'sans-serif'}h2.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,h3.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,p.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{color:var(--accent-color)}.top.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;height:100vh}.top.svelte-158p0cd>.row.svelte-158p0cd.svelte-158p0cd{position:absolute;top:40%;transform:translateY(-40%);width:100%}.top.svelte-158p0cd>.row.svelte-158p0cd>div.svelte-158p0cd{position:relative}.img-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;width:375px;height:375px;margin:auto}.img-box.svelte-158p0cd>picture.svelte-158p0cd>img.svelte-158p0cd{width:100%;height:100%;border-radius:50%;border:0.8rem solid var(--background-color)}.down-arrow-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:absolute;bottom:0;width:100%;height:var(--home-bottom-height);background-color:var(--background-color)}.down-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,.up-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:3rem;width:3rem;border:none;background-color:transparent}.down-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;margin:0 auto;bottom:-2vh;left:50%;transform:translateX(-50%)}.up-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;margin:0 0 3rem;transform:translateX(-50%) rotate(180deg)}.down-arrow.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd,.up-arrow.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd{width:100%;filter:var(--svg-filter-accent);transition:0.1s}.down-arrow.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd:hover,.up-arrow.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd:hover{scale:1.1}.about.svelte-158p0cd h3.svelte-158p0cd.svelte-158p0cd{margin-top:1rem}.skills.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{display:flex;flex-wrap:wrap;justify-content:center;max-width:700px;margin:auto}.project.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{margin:0 0 2rem}.racquet-rivals-img.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{width:100%;border-radius:0.75rem;margin-top:2rem}.gridlock-play.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;overflow:hidden;margin:1rem auto;max-width:350px}.gridlock-img.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{width:100%;border-radius:0.75rem;transition:0.1s}.gridlock-play.svelte-158p0cd:hover img.svelte-158p0cd.svelte-158p0cd{filter:blur(3px) brightness(50%)}.project-buttons.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{display:flex;justify-content:space-evenly;width:100%;margin-top:2rem}.overlay.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{width:100%;height:99%;position:absolute;top:0;left:0;opacity:0;vertical-align:center;color:#fff;font-size:2rem;font-weight:600;border-radius:0.75rem;display:flex;justify-content:center;align-items:center;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;transition:0.1s}.gridlock-play.svelte-158p0cd:hover .overlay.svelte-158p0cd.svelte-158p0cd{opacity:1}.github-button.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd{width:2rem;margin-left:0.5rem}.video-wrapper.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{margin:2rem 0}video.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{border-radius:0.5rem}.button-primary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{display:flex;justify-content:space-between;align-items:center;background-color:var(--accent-color)}.button-primary.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd{color:#000;font-size:1.4rem;font-weight:600}.button-secondary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{display:flex;justify-content:space-between;align-items:center;color:var(--accent-color);background-color:transparent}.button-primary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,.button-secondary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{padding:0.5rem 0.6rem;border:1px solid var(--accent-color);border-radius:0.5rem;height:3rem;transition:0.1s}.button-primary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:hover,.button-secondary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:hover{transform:scale(1.07)}.blog.svelte-158p0cd .button-primary.svelte-158p0cd.svelte-158p0cd{margin:2rem auto 0}.contact-info.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:1rem}.copy-email.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:relative}.copy-button.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{width:100%}.copy-button.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd{width:1.8rem;margin-left:1rem;filter:var(--svg-filter-accent)}.copied.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{position:absolute;top:50%;transform:translateY(-50%);right:-3rem;transition:0.1s}.copied.svelte-158p0cd img.svelte-158p0cd.svelte-158p0cd{width:2rem;filter:var(--svg-filter-accent)}.copied.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:not(.show-check){opacity:0}.copied.show-check.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{opacity:1}@media(max-width: 576px){.top.svelte-158p0cd>.row.svelte-158p0cd.svelte-158p0cd{position:absolute;top:20%;transform:translateY(-20%);width:100%}section.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd{font-size:1.3rem}.img-box.svelte-158p0cd>picture.svelte-158p0cd>img.svelte-158p0cd{border-width:0.5rem}.img-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:35vh;width:35vh}.up-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd,.down-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:15vw;width:15vw}.down-arrow.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{bottom:0}.down-arrow-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:var(--home-bottom-height-mobile);bottom:-10px}.button-primary.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd,.button-secondary.svelte-158p0cd p.svelte-158p0cd.svelte-158p0cd{font-size:1.2rem}.button-primary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:hover,.button-secondary.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd:hover{transform:none}.overlay.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{display:none}.gridlock-play.svelte-158p0cd:hover .overlay.svelte-158p0cd.svelte-158p0cd{opacity:0}.gridlock-play.svelte-158p0cd:hover img.svelte-158p0cd.svelte-158p0cd{filter:none}.gridlock-link.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{pointer-events:none}.copy-email.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{transform:scale(0.9)}}@media(min-width: 576px) and (max-width: 992px){.top.svelte-158p0cd>.row.svelte-158p0cd.svelte-158p0cd{top:0;transform:translateY(0)}.img-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:45vh;width:45vh}.down-arrow-box.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{height:var(--home-bottom-height);bottom:-10px}.title.svelte-158p0cd.svelte-158p0cd.svelte-158p0cd{margin:4vh 0 1rem}}",
   map: null
 };
 const Main = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -716,50 +820,46 @@ const Main = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     };
   };
   const headshotSources = getImageSources(headshot);
+  const racquetRivalsSources = getImageSources(racquetRivals);
   const gridlockSources = getImageSources(gridlock);
   let showCheck = false;
   $$result.css.add(css$1);
-  return `<main class="scroll-point svelte-f49vzr"><section class="top svelte-f49vzr"><div class="row align-items-center m-0 p-0 svelte-f49vzr"><div class="col-xs-12 col-lg-7 pb-3 title svelte-f49vzr"><h1 class="svelte-f49vzr">Hi, I&#39;m Will</h1>
-				<p class="svelte-f49vzr">Software engineer, problem-solver, creator</p></div>
-			<div class="col-xs-12 col-lg-5 svelte-f49vzr"><div class="img-box svelte-f49vzr"><picture class="svelte-f49vzr"><source${add_attribute("srcset", headshotSources.avif, 0)} type="image/avif">
+  return `<main class="scroll-point svelte-158p0cd"><section class="top svelte-158p0cd"><div class="row align-items-center m-0 p-0 svelte-158p0cd"><div class="col-xs-12 col-lg-7 pb-3 title svelte-158p0cd"><h1 class="svelte-158p0cd">Hi, I&#39;m Will</h1>
+				<p class="svelte-158p0cd">Software engineer, problem-solver, creator</p></div>
+			<div class="col-xs-12 col-lg-5 svelte-158p0cd"><div class="img-box svelte-158p0cd"><picture class="svelte-158p0cd"><source${add_attribute("srcset", headshotSources.avif, 0)} type="image/avif">
 						<source${add_attribute("srcset", headshotSources.webp, 0)} type="image/webp">
-						<img class="headshot svelte-f49vzr"${add_attribute("src", headshotSources.png, 0)} alt="Headshot" loading="eager"></picture></div></div></div>
+						<img class="headshot svelte-158p0cd"${add_attribute("src", headshotSources.png, 0)} alt="Headshot" loading="eager"></picture></div></div></div>
 		${validate_component(Wave, "Wave").$$render($$result, {}, {}, {})}
-		<div class="down-arrow-box svelte-f49vzr"><button type="button" class="down-arrow svelte-f49vzr"><img class="col-xs-12 svelte-f49vzr"${add_attribute("src", downArrow, 0)} alt="Down arrow to scroll to About" loading="eager"></button></div></section>
+		<div class="down-arrow-box svelte-158p0cd"><button type="button" class="down-arrow svelte-158p0cd"><img class="col-xs-12 svelte-158p0cd"${add_attribute("src", downArrow, 0)} alt="Down arrow to scroll to About" loading="eager"></button></div></section>
 
-	<section class="scroll-point about svelte-f49vzr"><h2 class="svelte-f49vzr">About</h2>
-		<p class="svelte-f49vzr">I&#39;m passionate about making ideas come to life on the web. While working as a software
-			consultant, I learned firsthand the power of code and how it can be used to improve the lives
-			of millions. I dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a
-			life-changing journey to code professionally. Now, I am a software engineer at SIOS Technology
-			Corp., where I work on high availability and disaster recovery solutions for cloud systems.
+	<section class="scroll-point about svelte-158p0cd"><h2 class="svelte-158p0cd">About</h2>
+		<p class="svelte-158p0cd">I&#39;m passionate about making ideas come to life on the web. While working as a consultant, I
+			learned firsthand the power of code and how it can be used to improve the lives of millions. I
+			dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a life-changing
+			journey to code professionally. Now, I am a software engineer at SIOS Technology Corp., where
+			I work on high availability and disaster recovery solutions for cloud systems.
 		</p>
-		<h3 class="svelte-f49vzr">Skills</h3>
-		<div class="skills svelte-f49vzr">${each(techData, (data, index) => {
+		<h3 class="svelte-158p0cd">Skills and Technologies</h3>
+		<div class="skills svelte-158p0cd">${each(techData, (data, index) => {
     return `${validate_component(TechLogo, "TechLogo").$$render($$result, { data, index }, {}, {})}`;
   })}</div></section>
-	<section class="scroll-point projects svelte-f49vzr"><h2 class="svelte-f49vzr">Projects</h2>
-		<article class="project svelte-f49vzr"><h3 class="svelte-f49vzr">Gridlock</h3>
-			<div class="row gridlock-grid"><div class="col-xs-12 col-md-8 gridlock-info"><p class="svelte-f49vzr">Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I
-						thought it would be fun to create a digital version. The goal is to connect 4 numbers in
-						a row, using a factor of the number from your opponent&#39;s previous turn. I designed the
-						app to fit any size screen, built it using React, and deployed it to Netlify.
-					</p>
-					<br>
-					<p class="svelte-f49vzr">Do you like a challenge? I am most proud of the &quot;Computer - Hard&quot; mode in Settings. It
-						is an AI that I created to play against you, which was inspired by chess engines. It
-						uses a minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can
-						beat it!
-					</p>
-					<div class="project-buttons svelte-f49vzr"><a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-f49vzr" type="button"><p class="svelte-f49vzr">Play Gridlock</p></button></a>
-						<a href="https://github.com/willbraun/gridlock" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-f49vzr" type="button"><p class="svelte-f49vzr">GitHub</p>
-								<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-f49vzr"></button></a></div></div>
-				<div class="col-xs-12 col-md-4 gridlock-play svelte-f49vzr"><a class="gridlock-link svelte-f49vzr" href="https://gridlock.willbraun.dev" target="_blank"><picture><source${add_attribute("srcset", gridlockSources.avif, 0)} type="image/avif">
-							<source${add_attribute("srcset", gridlockSources.webp, 0)} type="image/webp">
-							<img class="gridlock-img svelte-f49vzr"${add_attribute("src", gridlockSources.png, 0)} alt="Gridlock" loading="lazy"></picture>
-						<div class="overlay svelte-f49vzr">Click to play</div></a></div></div></article>
-		<article class="project svelte-f49vzr"><h3 class="svelte-f49vzr">OpenSeat</h3>
-			<p class="svelte-f49vzr">When I moved to Greenville, SC, I was working remotely and found it tough to meet new
+	<section class="scroll-point projects svelte-158p0cd"><h2 class="svelte-158p0cd">Projects</h2>
+		<article class="project svelte-158p0cd"><a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer"><h3 class="svelte-158p0cd">RacquetRivals.com</h3></a>
+			<p class="svelte-158p0cd">My wife and I used to create brackets by hand for the last 16 players of the four major
+				tennis tournaments. We had so much fun I made it into a web app, like March Madness. Sign
+				up, add your predictions during a major tournament, and you&#39;ll be awarded points by round
+				for correct choices. You can compare scores with your friends along the way. The frontend is
+				built with SvelteKit hosted on Netlify, and the backend is Pocketbase hosted on a Digital
+				Ocean Linux Droplet.
+			</p>
+			<picture><source${add_attribute("srcset", racquetRivalsSources.avif, 0)} type="image/avif">
+				<source${add_attribute("srcset", racquetRivalsSources.webp, 0)} type="image/webp">
+				<img class="racquet-rivals-img svelte-158p0cd"${add_attribute("src", racquetRivalsSources.png, 0)} alt="Racquet Rivals" loading="lazy"></picture>
+			<div class="project-buttons svelte-158p0cd"><a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-158p0cd" type="button"><p class="svelte-158p0cd">Visit RacquetRivals.com</p></button></a>
+				<a href="https://github.com/willbraun/racquet-rivals" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-158p0cd" type="button"><p class="svelte-158p0cd">GitHub</p>
+						<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-158p0cd"></button></a></div></article>
+		<article class="project svelte-158p0cd"><h3 class="svelte-158p0cd">OpenSeat</h3>
+			<p class="svelte-158p0cd">When I moved to Greenville, SC, I was working remotely and found it tough to meet new
 				people. I was inspired to create a solution to connect people based on their unique
 				interests. With OpenSeat, you can create events to do any activity you&#39;d like with a small
 				group. You can also search for and sign up for events that others have posted. It is a full
@@ -767,30 +867,49 @@ const Main = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 				This was my final project at Carolina Code School, and I&#39;ve included a video demo of the app
 				below.
 			</p>
-			<div class="video-wrapper svelte-f49vzr" style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe title="Open Seat Loom video demo" src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" loading="lazy"></iframe></div>
-			<div class="project-buttons svelte-f49vzr"><a href="https://github.com/willbraun/openseat-app" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-f49vzr" type="button"><p class="svelte-f49vzr">GitHub</p>
-						<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-f49vzr"></button></a></div></article>
-		<article class="project svelte-f49vzr"><h3 class="svelte-f49vzr">3D Dice Roll</h3>
-			<p class="svelte-f49vzr">With this app, you can roll two six-sided dice and watch them bounce around. I used
+			<div class="video-wrapper svelte-158p0cd" style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe title="Open Seat Loom video demo" src="https://www.loom.com/embed/ec1cf09e45434ab29c6b323d3856634a" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" loading="lazy"></iframe></div>
+			<div class="project-buttons svelte-158p0cd"><a href="https://github.com/willbraun/openseat-app" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-158p0cd" type="button"><p class="svelte-158p0cd">GitHub</p>
+						<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-158p0cd"></button></a></div></article>
+		<article class="project svelte-158p0cd"><h3 class="svelte-158p0cd">Gridlock</h3>
+			<div class="row gridlock-grid"><div class="col-xs-12 col-md-8 gridlock-info"><p class="svelte-158p0cd">Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I
+						thought it would be fun to create a digital version. The goal is to connect 4 numbers in
+						a row, using a factor of the number from your opponent&#39;s previous turn. I designed the
+						app to fit any size screen, built it using React, and deployed it to Netlify.
+					</p>
+					<br>
+					<p class="svelte-158p0cd">Do you like a challenge? I am most proud of the &quot;Computer - Hard&quot; mode in Settings. It
+						is an AI that I created to play against you, which was inspired by chess engines. It
+						uses a minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can
+						beat it!
+					</p>
+					<div class="project-buttons svelte-158p0cd"><a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-158p0cd" type="button"><p class="svelte-158p0cd">Play Gridlock</p></button></a>
+						<a href="https://github.com/willbraun/gridlock" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-158p0cd" type="button"><p class="svelte-158p0cd">GitHub</p>
+								<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-158p0cd"></button></a></div></div>
+				<div class="col-xs-12 col-md-4 gridlock-play svelte-158p0cd"><a class="gridlock-link svelte-158p0cd" href="https://gridlock.willbraun.dev" target="_blank"><picture><source${add_attribute("srcset", gridlockSources.avif, 0)} type="image/avif">
+							<source${add_attribute("srcset", gridlockSources.webp, 0)} type="image/webp">
+							<img class="gridlock-img svelte-158p0cd"${add_attribute("src", gridlockSources.png, 0)} alt="Gridlock" loading="lazy"></picture>
+						<div class="overlay svelte-158p0cd">Click to play</div></a></div></div></article>
+		<article class="project svelte-158p0cd"><h3 class="svelte-158p0cd">3D Dice Roll</h3>
+			<p class="svelte-158p0cd">With this app, you can roll two six-sided dice and watch them bounce around. I used
 				SvelteKit, Three.js, Threlte, the Rapier Physics Engine, and deployed it to Netlify.
 			</p>
-			<div class="video-wrapper svelte-f49vzr"><video width="100%" muted autoplay loop playsinline class="svelte-f49vzr"><source src="3d-dice-roll.mp4" type="video/mp4"></video></div>
-			<div class="project-buttons svelte-f49vzr"><a href="https://dice.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-f49vzr" type="button"><p class="svelte-f49vzr">Roll Dice</p></button></a>
-				<a href="https://github.com/willbraun/3d-dice-roll" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-f49vzr" type="button"><p class="svelte-f49vzr">GitHub</p>
-						<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-f49vzr"></button></a></div></article></section>
-	<section class="scroll-point blog svelte-f49vzr"><h2 class="svelte-f49vzr">Blog</h2>
-		<p class="svelte-f49vzr">I love software development because there is always more to learn, and I can share what I&#39;ve
+			<div class="video-wrapper svelte-158p0cd"><video width="100%" muted autoplay loop playsinline class="svelte-158p0cd"><source src="3d-dice-roll.mp4" type="video/mp4"></video></div>
+			<div class="project-buttons svelte-158p0cd"><a href="https://dice.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-158p0cd" type="button"><p class="svelte-158p0cd">Roll Dice</p></button></a>
+				<a href="https://github.com/willbraun/3d-dice-roll" target="_blank" rel="noopener noreferrer"><button class="button-primary github-button svelte-158p0cd" type="button"><p class="svelte-158p0cd">GitHub</p>
+						<img${add_attribute("src", github, 0)} alt="github icon" loading="lazy" class="svelte-158p0cd"></button></a></div></article></section>
+	<section class="scroll-point blog svelte-158p0cd"><h2 class="svelte-158p0cd">Blog</h2>
+		<p class="svelte-158p0cd">I love software development because there is always more to learn, and I can share what I&#39;ve
 			learned to help others. I write articles about tech I am working with, personal projects,
 			problems I have solved, and life as a developer. Check it out!
 		</p>
-		<a href="https://blog.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-f49vzr" type="button"><p class="svelte-f49vzr">Visit My Blog</p></button></a></section>
-	<section class="scroll-point contact svelte-f49vzr"><h2 class="svelte-f49vzr">Contact</h2>
-		<div class="contact-info svelte-f49vzr"><p class="svelte-f49vzr">Want to chat? Feel free to reach out!</p>
-			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer" class="svelte-f49vzr"><button class="button-primary svelte-f49vzr" type="button"><p class="svelte-f49vzr">Open Mail App</p></button></a>
-			<div class="copy-email svelte-f49vzr"><button class="copy-button button-secondary svelte-f49vzr" type="button"><p class="svelte-f49vzr">williamhbraun1@gmail.com</p>
-					<img${add_attribute("src", copy, 0)} alt="copy email" loading="lazy" class="svelte-f49vzr"></button>
-				<div class="${"copied " + escape(showCheck, true) + " svelte-f49vzr"}"><img${add_attribute("src", check, 0)} alt="copied check mark" loading="lazy" class="svelte-f49vzr"></div></div></div></section>
-	<button type="button" class="down-arrow up-arrow svelte-f49vzr"><img class="col-xs-12 svelte-f49vzr"${add_attribute("src", downArrow, 0)} alt="up arrow scroll to top" loading="lazy"></button>
+		<a href="https://blog.willbraun.dev" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-158p0cd" type="button"><p class="svelte-158p0cd">Visit My Blog</p></button></a></section>
+	<section class="scroll-point contact svelte-158p0cd"><h2 class="svelte-158p0cd">Contact</h2>
+		<div class="contact-info svelte-158p0cd"><p class="svelte-158p0cd">Want to chat? Feel free to reach out!</p>
+			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer"><button class="button-primary svelte-158p0cd" type="button"><p class="svelte-158p0cd">Open Mail App</p></button></a>
+			<div class="copy-email svelte-158p0cd"><button class="copy-button button-secondary svelte-158p0cd" type="button"><p class="svelte-158p0cd">williamhbraun1@gmail.com</p>
+					<img${add_attribute("src", copy, 0)} alt="copy email" loading="lazy" class="svelte-158p0cd"></button>
+				<div class="${"copied " + escape(showCheck, true) + " svelte-158p0cd"}"><img${add_attribute("src", check, 0)} alt="copied check mark" loading="lazy" class="svelte-158p0cd"></div></div></div></section>
+	<button type="button" class="down-arrow up-arrow svelte-158p0cd"><img class="col-xs-12 svelte-158p0cd"${add_attribute("src", downArrow, 0)} alt="up arrow scroll to top" loading="lazy"></button>
 </main>`;
 });
 const linkedin = "/_app/immutable/assets/linkedin.c8f1cb71.svg";
