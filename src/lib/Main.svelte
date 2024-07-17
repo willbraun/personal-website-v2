@@ -29,12 +29,15 @@
 	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
 	import downArrow from '/src/assets/images/angles-down-solid.svg';
 	import racquetRivals from '/src/assets/images/racquet-rivals-image2.png?format=avif;webp;png&picture';
+	import aiPokerCoach from '/src/assets/images/ai-poker-coach-image.png?format=avif;webp;png&picture';
 	import gridlock from '/src/assets/images/gridlock-image.png?w=776&h=1478&format=avif;webp;png&picture';
 	import github from '/src/assets/images/github.svg';
 	import copy from '/src/assets/images/copy-icon.svg';
 	import check from '/src/assets/images/check-solid.svg';
+	import externalLink from '/src/assets/images/arrow-up-right-from-square-solid.svg';
 
 	const headshotSources = getImageSources(headshot);
+	const aiPokerCoachSources = getImageSources(aiPokerCoach);
 	const racquetRivalsSources = getImageSources(racquetRivals);
 	const gridlockSources = getImageSources(gridlock);
 
@@ -102,6 +105,45 @@
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
+			<h3>AI Poker Coach</h3>
+			<p>
+				Poker is a game of incomplete information and luck, so it can be difficult to know if your
+				play is correct. With this app, you can analyze your poker hands using AI fine-tuned with
+				poker information. You're able to review your analysis in English rather than needing to
+				decipher complex diagrams via traditional methods of poker study. The frontend is built with
+				Next.js and hosted on Netlify, and the backend is a ASP.NET Core Web API hosted on a Digital
+				Ocean Linux Droplet.
+			</p>
+			<picture>
+				<source srcset={aiPokerCoachSources.avif} type="image/avif" />
+				<source srcset={aiPokerCoachSources.webp} type="image/webp" />
+				<img
+					class="full-width-img"
+					src={aiPokerCoachSources.png}
+					alt="AI Poker Coach"
+					loading="lazy"
+				/>
+			</picture>
+			<div class="project-buttons">
+				<a href="https://aipokercoach.willbraun.dev" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>AI Poker Coach</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/ai-poker-coach"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
 			<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
 				<h3>RacquetRivals.com</h3>
 			</a>
@@ -117,7 +159,7 @@
 				<source srcset={racquetRivalsSources.avif} type="image/avif" />
 				<source srcset={racquetRivalsSources.webp} type="image/webp" />
 				<img
-					class="racquet-rivals-img"
+					class="full-width-img"
 					src={racquetRivalsSources.png}
 					alt="Racquet Rivals"
 					loading="lazy"
@@ -126,7 +168,8 @@
 			<div class="project-buttons">
 				<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
 					<button class="button-primary" type="button">
-						<p>Visit RacquetRivals.com</p>
+						<p>RacquetRivals.com</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
 					</button>
 				</a>
 				<a
@@ -183,19 +226,19 @@
 						Gridlock is a 2-player strategy game that a friend showed me on a whiteboard, and I
 						thought it would be fun to create a digital version. The goal is to connect 4 numbers in
 						a row, using a factor of the number from your opponent's previous turn. I designed the
-						app to fit any size screen, built it using React, and deployed it to Netlify.
+						app to be mobile-friendly, built it using React, and deployed it to Netlify.
 					</p>
 					<br />
 					<p>
 						Do you like a challenge? I am most proud of the "Computer - Hard" mode in Settings. It
-						is an AI that I created to play against you, which was inspired by chess engines. It
-						uses a minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can
-						beat it!
+						is an AI inspired by chess engines that I created to play against you. It uses a minimax
+						algorithm, alpha-beta pruning, and an evaluation function. See if you can beat it!
 					</p>
 					<div class="project-buttons">
 						<a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer">
 							<button class="button-primary" type="button">
 								<p>Play Gridlock</p>
+								<img src={externalLink} alt="external link icon" loading="lazy" />
 							</button>
 						</a>
 						<a
@@ -225,8 +268,8 @@
 		<article class="project">
 			<h3>3D Dice Roll</h3>
 			<p>
-				With this app, you can roll two six-sided dice and watch them bounce around. I used
-				SvelteKit, Three.js, Threlte, the Rapier Physics Engine, and deployed it to Netlify.
+				Roll two six-sided dice and watch them bounce around. I used SvelteKit, Three.js, Threlte,
+				the Rapier Physics Engine, and deployed it to Netlify.
 			</p>
 			<div class="video-wrapper">
 				<video width="100%" muted autoplay loop playsinline>
@@ -237,6 +280,7 @@
 				<a href="https://dice.willbraun.dev" target="_blank" rel="noopener noreferrer">
 					<button class="button-primary" type="button">
 						<p>Roll Dice</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
 					</button>
 				</a>
 				<a
@@ -262,6 +306,7 @@
 		<a href="https://blog.willbraun.dev" target="_blank" rel="noopener noreferrer">
 			<button class="button-primary" type="button">
 				<p>Visit My Blog</p>
+				<img src={externalLink} alt="external link icon" loading="lazy" />
 			</button>
 		</a>
 	</section>
@@ -272,6 +317,7 @@
 			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer">
 				<button class="button-primary" type="button">
 					<p>Open Mail App</p>
+					<img src={externalLink} alt="external link icon" loading="lazy" />
 				</button>
 			</a>
 			<div class="copy-email">
@@ -445,7 +491,7 @@
 		margin: 0 0 2rem;
 	}
 
-	.racquet-rivals-img {
+	.full-width-img {
 		width: 100%;
 		border-radius: 0.75rem;
 		margin-top: 2rem;
@@ -471,6 +517,7 @@
 	.project-buttons {
 		display: flex;
 		justify-content: space-evenly;
+		gap: 1rem;
 		width: 100%;
 		margin-top: 2rem;
 	}
@@ -518,12 +565,18 @@
 		justify-content: space-between;
 		align-items: center;
 		background-color: var(--accent-color);
+		height: 'fit-content';
 	}
 
 	.button-primary p {
 		color: #000;
 		font-size: 1.4rem;
 		font-weight: 600;
+	}
+
+	.button-primary img {
+		width: 1.5rem;
+		margin-left: 1rem;
 	}
 
 	.button-secondary {

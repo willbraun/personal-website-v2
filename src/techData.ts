@@ -5,7 +5,7 @@ import typescript from '/src/assets/images/tech-logos/typescript-logo.png?w=150&
 import html from '/src/assets/images/tech-logos/html-logo.png?w=150&format=avif;webp;png&picture';
 import css from '/src/assets/images/tech-logos/css-logo.png?w=150&format=avif;webp;png&picture';
 import tailwind from '/src/assets/images/tech-logos/tailwind-logo-1.png?w=150&format=avif;webp;png&picture';
-import scss from '/src/assets/images/tech-logos/scss-logo.png?w=150&format=avif;webp;png&picture';
+import csharp from '/src/assets/images/tech-logos/csharp-logo.png?w=150&format=avif;webp;png&picture';
 import bootstrap from '/src/assets/images/tech-logos/bootstrap-logo.png?w=125&h=100&format=avif;webp;png&picture';
 import go from '/src/assets/images/tech-logos/go-logo-1.png?w=150&format=avif;webp;png&picture';
 import python from '/src/assets/images/tech-logos/python-logo.png?w=150&format=avif;webp;png&picture';
@@ -17,6 +17,10 @@ import webScraping from '/src/assets/images/tech-logos/web-scraping-logo.png?w=1
 
 export const techData = [
 	{
+		name: 'TypeScript',
+		image: typescript
+	},
+	{
 		name: 'React',
 		image: react
 	},
@@ -27,10 +31,6 @@ export const techData = [
 	{
 		name: 'Svelte',
 		image: svelte
-	},
-	{
-		name: 'TypeScript',
-		image: typescript
 	},
 	{
 		name: 'HTML',
@@ -45,12 +45,12 @@ export const techData = [
 		image: tailwind
 	},
 	{
-		name: 'SCSS',
-		image: scss
-	},
-	{
 		name: 'Bootstrap',
 		image: bootstrap
+	},
+	{
+		name: 'C#',
+		image: csharp
 	},
 	{
 		name: 'Go',
