@@ -111,8 +111,8 @@
 				play is correct. With this app, you can analyze your poker hands using AI fine-tuned with
 				poker information. You're able to review your analysis in English rather than needing to
 				decipher complex diagrams via traditional methods of poker study. The frontend is built with
-				Next.js and hosted on Netlify, and the backend is a ASP.NET Core Web API hosted on a Digital
-				Ocean Linux Droplet.
+				Next.js and hosted on Netlify, and the backend is an ASP.NET Core Web API with a PostgreSQL
+				database hosted on a Digital Ocean Linux Droplet.
 			</p>
 			<picture>
 				<source srcset={aiPokerCoachSources.avif} type="image/avif" />
