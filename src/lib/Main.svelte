@@ -231,8 +231,9 @@
 					<br />
 					<p>
 						Do you like a challenge? I am most proud of the "Computer - Hard" mode in Settings. It
-						is an AI inspired by chess engines that I created to play against you. It uses a minimax
-						algorithm, alpha-beta pruning, and an evaluation function. See if you can beat it!
+						is an AI inspired by chess engines that I created to play against you. It uses a DFS
+						minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can beat
+						it!
 					</p>
 					<div class="project-buttons">
 						<a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer">
