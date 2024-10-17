@@ -27,10 +27,10 @@
 	};
 
 	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
-	import downArrow from '/src/assets/images/angles-down-solid.svg';
 	import racquetRivals from '/src/assets/images/racquet-rivals-image2.png?format=avif;webp;png&picture';
 	import aiPokerCoach from '/src/assets/images/ai-poker-coach-image.png?format=avif;webp;png&picture';
 	import gridlock from '/src/assets/images/gridlock-image.png?w=776&h=1478&format=avif;webp;png&picture';
+	import downArrow from '/src/assets/images/angles-down-solid.svg';
 	import github from '/src/assets/images/github.svg';
 	import copy from '/src/assets/images/copy-icon.svg';
 	import check from '/src/assets/images/check-solid.svg';
@@ -105,45 +105,6 @@
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
-			<h3>AI Poker Coach</h3>
-			<p>
-				Poker is a game of incomplete information and luck, so it can be difficult to know if your
-				play is correct. With this app, you can analyze your poker hands using AI fine-tuned with
-				poker information. You're able to review your analysis in English rather than needing to
-				decipher complex diagrams via traditional methods of poker study. The frontend is built with
-				Next.js and hosted on Netlify, and the backend is an ASP.NET Core Web API with a PostgreSQL
-				database hosted on a Digital Ocean Linux Droplet.
-			</p>
-			<picture>
-				<source srcset={aiPokerCoachSources.avif} type="image/avif" />
-				<source srcset={aiPokerCoachSources.webp} type="image/webp" />
-				<img
-					class="full-width-img"
-					src={aiPokerCoachSources.png}
-					alt="AI Poker Coach"
-					loading="lazy"
-				/>
-			</picture>
-			<div class="project-buttons">
-				<a href="https://aipokercoach.willbraun.dev" target="_blank" rel="noopener noreferrer">
-					<button class="button-primary" type="button">
-						<p>AI Poker Coach</p>
-						<img src={externalLink} alt="external link icon" loading="lazy" />
-					</button>
-				</a>
-				<a
-					href="https://github.com/willbraun/ai-poker-coach"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button class="button-primary github-button" type="button">
-						<p>GitHub</p>
-						<img src={github} alt="github icon" loading="lazy" />
-					</button>
-				</a>
-			</div>
-		</article>
-		<article class="project">
 			<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
 				<h3>RacquetRivals.com</h3>
 			</a>
@@ -174,6 +135,45 @@
 				</a>
 				<a
 					href="https://github.com/willbraun/racquet-rivals"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
+			<h3>AI Poker Coach</h3>
+			<p>
+				Poker is a game of incomplete information and luck, so it can be difficult to know if your
+				play is correct. With this app, you can analyze your poker hands using AI fine-tuned with
+				poker information. You're able to review your analysis in English rather than needing to
+				decipher complex diagrams via traditional methods of poker study. The frontend is built with
+				Next.js and hosted on Netlify, and the backend is an ASP.NET Core Web API with a PostgreSQL
+				database hosted on a Digital Ocean Linux Droplet.
+			</p>
+			<picture>
+				<source srcset={aiPokerCoachSources.avif} type="image/avif" />
+				<source srcset={aiPokerCoachSources.webp} type="image/webp" />
+				<img
+					class="full-width-img"
+					src={aiPokerCoachSources.png}
+					alt="AI Poker Coach"
+					loading="lazy"
+				/>
+			</picture>
+			<div class="project-buttons">
+				<a href="https://aipokercoach.willbraun.dev" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>AI Poker Coach</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/ai-poker-coach"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
