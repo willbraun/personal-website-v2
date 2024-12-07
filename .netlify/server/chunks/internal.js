@@ -107,7 +107,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link\n			rel="apple-touch-icon"\n			type="image/png"\n			sizes="180x180"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/favicon-180x180.png"\n		/>\n		<link\n			rel="icon"\n			type="image/png"\n			sizes="32x32"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/favicon-32x32.png"\n		/>\n		<link\n			rel="icon"\n			type="image/png"\n			sizes="16x16"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/favicon-16x16.png"\n		/>\n		<link rel="manifest" href="/manifest.webmanifest" />\n		<meta name="viewport" content="width=device-width" />\n		' + head + `
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link\n			rel="apple-touch-icon"\n			type="image/png"\n			sizes="180x180"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/images/favicons/favicon-180x180.png"\n		/>\n		<link\n			rel="icon"\n			type="image/png"\n			sizes="32x32"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/images/favicons/favicon-32x32.png"\n		/>\n		<link\n			rel="icon"\n			type="image/png"\n			sizes="16x16"\n			rel="noopener"\n			target="_blank"\n			href="' + assets2 + '/images/favicons/favicon-16x16.png"\n		/>\n		<link rel="manifest" href="/manifest.webmanifest" />\n		<meta name="viewport" content="width=device-width" />\n		' + head + `
 	</head>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CZF2W95Y0"><\/script>
@@ -183,7 +183,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "vo6has"
+  version_hash: "xt32nk"
 };
 function get_hooks() {
   return {};
