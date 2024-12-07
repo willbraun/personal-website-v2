@@ -1,18 +1,13 @@
 <script lang="ts">
-	export let data: {
-		name: string;
-		image: any;
-	};
+	import type { TechData } from '../techData';
+
+	export let data: TechData;
 	export let index: number;
 </script>
 
 <div class="tech-logo" style="animation-delay: -{0.5 * index}s">
 	<div class="img-box">
-		<picture>
-			<source srcset={data.image.sources.avif[0].src} type="image/avif" />
-			<source srcset={data.image.sources.webp[0].src} type="image/webp" />
-			<img src={data.image.fallback.src} alt="{data.name} logo" />
-		</picture>
+		<img src={data.imageSrc} alt="{data.name} logo" />
 	</div>
 	<p>{data.name}</p>
 </div>

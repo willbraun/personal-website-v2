@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Offcanvas } from 'sveltestrap/src';
-	import menu from '/src/assets/images/bars-solid.svg';
+	const menu = '/images/bars-solid.svg';
 
 	let scrollY: number;
 	let downArrowY: number;

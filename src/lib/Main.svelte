@@ -4,42 +4,15 @@
 	import TechLogo from './TechLogo.svelte';
 	import { techData } from '../techData';
 
-	type ImageToolsSingle = {
-		src: string;
-		h?: number;
-		w?: number;
-	};
-
-	interface ImageToolsOutput {
-		fallback: ImageToolsSingle;
-		sources: {
-			avif: ImageToolsSingle[];
-			webp: ImageToolsSingle[];
-		};
-	}
-
-	const getImageSources = (importedImage: ImageToolsOutput) => {
-		return {
-			avif: importedImage.sources.avif[0].src,
-			webp: importedImage.sources.webp[0].src,
-			png: importedImage.fallback.src
-		};
-	};
-
-	import headshot from '/src/assets/images/will-braun-headshot-min.jpg?w=650&h=650&format=avif;webp;png&picture';
-	import racquetRivals from '/src/assets/images/racquet-rivals-image2.png?format=avif;webp;png&picture';
-	import aiPokerCoach from '/src/assets/images/ai-poker-coach-image.png?format=avif;webp;png&picture';
-	import gridlock from '/src/assets/images/gridlock-image.png?w=776&h=1478&format=avif;webp;png&picture';
-	import downArrow from '/src/assets/images/angles-down-solid.svg';
-	import github from '/src/assets/images/github.svg';
-	import copy from '/src/assets/images/copy-icon.svg';
-	import check from '/src/assets/images/check-solid.svg';
-	import externalLink from '/src/assets/images/arrow-up-right-from-square-solid.svg';
-
-	const headshotSources = getImageSources(headshot);
-	const aiPokerCoachSources = getImageSources(aiPokerCoach);
-	const racquetRivalsSources = getImageSources(racquetRivals);
-	const gridlockSources = getImageSources(gridlock);
+	const headshot = '/images/headshot.jpg';
+	const racquetRivals = '/images/racquet-rivals-image2.png';
+	const aiPokerCoach = '/images/ai-poker-coach-image.png';
+	const gridlock = '/images/gridlock-image.png';
+	const downArrow = '/images/angles-down-solid.svg';
+	const github = '/images/github.svg';
+	const copy = '/images/copy-icon.svg';
+	const check = '/images/check-solid.svg';
+	const externalLink = '/images/arrow-up-right-from-square-solid.svg';
 
 	let scrollTo: Function;
 	onMount(() => {
@@ -65,11 +38,7 @@
 			</div>
 			<div class="col-xs-12 col-lg-5">
 				<div class="img-box">
-					<picture>
-						<source srcset={headshotSources.avif} type="image/avif" />
-						<source srcset={headshotSources.webp} type="image/webp" />
-						<img class="headshot" src={headshotSources.png} alt="Headshot" loading="eager" />
-					</picture>
+					<img class="headshot" src={headshot} alt="Headshot" loading="eager" />
 				</div>
 			</div>
 		</div>
@@ -116,16 +85,7 @@
 				built with SvelteKit hosted on Netlify, and the backend is Pocketbase hosted on a Digital
 				Ocean Linux Droplet.
 			</p>
-			<picture>
-				<source srcset={racquetRivalsSources.avif} type="image/avif" />
-				<source srcset={racquetRivalsSources.webp} type="image/webp" />
-				<img
-					class="full-width-img"
-					src={racquetRivalsSources.png}
-					alt="Racquet Rivals"
-					loading="lazy"
-				/>
-			</picture>
+			<img class="full-width-img" src={racquetRivals} alt="Racquet Rivals" loading="lazy" />
 			<div class="project-buttons">
 				<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
 					<button class="button-primary" type="button">
@@ -155,16 +115,7 @@
 				Next.js and hosted on Netlify, and the backend is an ASP.NET Core Web API with a PostgreSQL
 				database hosted on a Digital Ocean Linux Droplet.
 			</p>
-			<picture>
-				<source srcset={aiPokerCoachSources.avif} type="image/avif" />
-				<source srcset={aiPokerCoachSources.webp} type="image/webp" />
-				<img
-					class="full-width-img"
-					src={aiPokerCoachSources.png}
-					alt="AI Poker Coach"
-					loading="lazy"
-				/>
-			</picture>
+			<img class="full-width-img" src={aiPokerCoach} alt="AI Poker Coach" loading="lazy" />
 			<div class="project-buttons">
 				<a href="https://aipokercoach.willbraun.dev" target="_blank" rel="noopener noreferrer">
 					<button class="button-primary" type="button">
@@ -256,11 +207,7 @@
 				</div>
 				<div class="col-xs-12 col-md-4 gridlock-play">
 					<a class="gridlock-link" href="https://gridlock.willbraun.dev" target="_blank">
-						<picture>
-							<source srcset={gridlockSources.avif} type="image/avif" />
-							<source srcset={gridlockSources.webp} type="image/webp" />
-							<img class="gridlock-img" src={gridlockSources.png} alt="Gridlock" loading="lazy" />
-						</picture>
+						<img class="gridlock-img" src={gridlock} alt="Gridlock" loading="lazy" />
 						<div class="overlay">Click to play</div>
 					</a>
 				</div>
@@ -425,7 +372,7 @@
 		margin: auto;
 	}
 
-	.img-box > picture > img {
+	.headshot {
 		width: 100%;
 		height: 100%;
 		border-radius: 50%;
@@ -660,10 +607,6 @@
 
 		section p {
 			font-size: 1.3rem;
-		}
-
-		.img-box > picture > img {
-			border-width: 0.5rem;
 		}
 
 		.img-box {

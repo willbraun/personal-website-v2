@@ -1,6 +1,6 @@
 <script lang="ts">
-	import linkedin from '/src/assets/images/linkedin.svg';
-	import github from '/src/assets/images/github.svg';
+	const linkedin = '/images/linkedin.svg';
+	const github = '/images/github.svg';
 
 	let year: string = new Date().getFullYear().toString();
 </script>
