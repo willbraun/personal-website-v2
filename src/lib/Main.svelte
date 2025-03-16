@@ -5,7 +5,7 @@
 	import { techData } from '../techData';
 
 	const headshot = '/images/headshot.jpg';
-	const racquetRivals = '/images/racquet-rivals-image2.png';
+	const racquetRivals = '/images/racquet-rivals-image3.png';
 	const aiPokerCoach = '/images/ai-poker-coach-image.png';
 	const gridlock = '/images/gridlock-image.png';
 	const downArrow = '/images/angles-down-solid.svg';
@@ -91,16 +91,6 @@
 					<button class="button-primary" type="button">
 						<p>RacquetRivals.com</p>
 						<img src={externalLink} alt="external link icon" loading="lazy" />
-					</button>
-				</a>
-				<a
-					href="https://github.com/willbraun/racquet-rivals"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button class="button-primary github-button" type="button">
-						<p>GitHub</p>
-						<img src={github} alt="github icon" loading="lazy" />
 					</button>
 				</a>
 			</div>
@@ -247,9 +237,8 @@
 	<section class="scroll-point blog">
 		<h2>Blog</h2>
 		<p>
-			I love software development because there is always more to learn, and I can share what I've
-			learned to help others. I write articles about tech I am working with, personal projects,
-			problems I have solved, and life as a developer. Check it out!
+			I write articles about tech I am working with, personal projects, problems I have solved, and
+			life as a developer. Check it out!
 		</p>
 		<a href="https://blog.willbraun.dev" target="_blank" rel="noopener noreferrer">
 			<button class="button-primary" type="button">
@@ -468,6 +457,7 @@
 		gap: 1rem;
 		width: 100%;
 		margin-top: 2rem;
+		margin-bottom: 2rem;
 	}
 
 	.overlay {
