@@ -13,11 +13,16 @@
 				d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
 			/>
 		</defs>
+		<linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop offset="0%" stop-color="rgba(0,180, 250,1)" />
+			<stop offset="50%" stop-color="rgba(0,28, 85, 1)" stop-opacity="1" />
+			<stop offset="100%" stop-color="rgba(0,180, 250,1)" />
+		</linearGradient>
 		<g class="parallax">
-			<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,28,85,0.7" />
-			<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,28,85,0.5)" />
-			<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,28,85,0.3)" />
-			<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,28,85,1)" />
+			<use xlink:href="#gentle-wave" x="48" y="0" fill="url(#Gradient)" opacity="0.7" />
+			<use xlink:href="#gentle-wave" x="48" y="3" fill="url(#Gradient)" opacity="0.5" />
+			<use xlink:href="#gentle-wave" x="48" y="5" fill="url(#Gradient)" opacity="0.3" />
+			<use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,28,85,1)" opacity="1" />
 		</g>
 	</svg>
 	<svg class="bottom">
