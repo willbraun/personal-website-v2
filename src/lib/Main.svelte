@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Wave from './Wave.svelte';
-	import TechLogo from './TechLogo.svelte';
 	import { techData } from '../techData';
+	import TechLogo from './TechLogo.svelte';
+	import Wave from './Wave.svelte';
 
 	const headshot = '/images/headshot.jpg';
 	const racquetRivals = '/images/racquet-rivals-image3.png';
@@ -58,12 +58,12 @@
 	<section class="scroll-point about">
 		<h2>About</h2>
 		<p>
-			I'm passionate about making ideas come to life on the web. While working as a consultant, I
-			learned firsthand the power of code and how it can be used to improve the lives of millions. I
-			dabbled with JavaScript in my spare time and I was hooked, jumpstarting me on a life-changing
-			journey to code professionally. Now, I am a software engineer at SIOS Technology Corp., where
-			I work on high availability and disaster recovery solutions for cloud systems.
+			I'm passionate about making ideas come to life on the web. As a senior software engineer with
+			experience in product management, consulting, and chemical engineering, I have a wide range of
+			tools in my toolbox and bring a unique perspective to every project. I strive to build robust
+			and intuitive solutions across the tech stack.
 		</p>
+		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
 		<h3>Skills and Technologies</h3>
 		<div class="skills">
 			{#each techData as data, index}
@@ -410,8 +410,8 @@
 		scale: 1.1;
 	}
 
-	.about h3 {
-		margin-top: 1rem;
+	.about :not(h2) {
+		padding-bottom: 1rem;
 	}
 
 	.skills {

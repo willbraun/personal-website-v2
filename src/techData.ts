@@ -13,6 +13,14 @@ export const techData: TechData[] = [
 		imageSrc: '/images/tech-logos/react-logo.png'
 	},
 	{
+		name: 'Next.js',
+		imageSrc: '/images/tech-logos/next-js-logo.svg'
+	},
+	{
+		name: 'Supabase',
+		imageSrc: '/images/tech-logos/supabase-logo.png'
+	},
+	{
 		name: 'Redux',
 		imageSrc: '/images/tech-logos/redux-logo-1.png'
 	},
@@ -33,14 +41,6 @@ export const techData: TechData[] = [
 		imageSrc: '/images/tech-logos/tailwind-logo-1.png'
 	},
 	{
-		name: 'Bootstrap',
-		imageSrc: '/images/tech-logos/bootstrap-logo.png'
-	},
-	{
-		name: 'C#',
-		imageSrc: '/images/tech-logos/csharp-logo.png'
-	},
-	{
 		name: 'Go',
 		imageSrc: '/images/tech-logos/go-logo-1.png'
 	},
@@ -49,12 +49,12 @@ export const techData: TechData[] = [
 		imageSrc: '/images/tech-logos/python-logo.png'
 	},
 	{
-		name: 'Django',
-		imageSrc: '/images/tech-logos/django-logo.png'
-	},
-	{
 		name: 'Perl',
 		imageSrc: '/images/tech-logos/perl-logo.png'
+	},
+	{
+		name: 'C#',
+		imageSrc: '/images/tech-logos/csharp-logo.png'
 	},
 	{
 		name: 'Git',
