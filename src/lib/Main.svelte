@@ -5,6 +5,7 @@
 	import Wave from './Wave.svelte';
 
 	const headshot = '/images/headshot.jpg';
+	const unison = '/images/unison.png';
 	const racquetRivals = '/images/racquet-rivals-image3.png';
 	const aiPokerCoach = '/images/ai-poker-coach-image.png';
 	const gridlock = '/images/gridlock-image.png';
@@ -74,9 +75,27 @@
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
-			<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
-				<h3>RacquetRivals.com</h3>
-			</a>
+			<h3>Unison</h3>
+			<p>
+				Unison is an online community where women can share stories and discuss health and wellness
+				in a safe, inclusive space. Members can create posts, comment, reply, like, search, and
+				report content to keep the conversations supportive. I designed and developed the platform
+				as a freelance project for a friend who saw the need for this kind of community, taking the
+				idea from vision to launch. The frontend is built with Next.js and hosted on Vercel, while
+				the backend is built with Supabase.
+			</p>
+			<img class="full-width-img" src={unison} alt="Unison" loading="lazy" />
+			<div class="project-buttons">
+				<a href="https://unisoncommunity.com" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>unisoncommunity.com</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
+			<h3>Racquet Rivals</h3>
 			<p>
 				My wife and I used to create brackets by hand for the last 16 players of the four major
 				tennis tournaments. We had so much fun I made it into a web app, like March Madness. Sign
@@ -89,8 +108,18 @@
 			<div class="project-buttons">
 				<a href="https://racquetrivals.com" target="_blank" rel="noopener noreferrer">
 					<button class="button-primary" type="button">
-						<p>RacquetRivals.com</p>
+						<p>racquetrivals.com</p>
 						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/racquet-rivals"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
 					</button>
 				</a>
 			</div>
