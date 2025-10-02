@@ -81,8 +81,8 @@
 				in a safe, inclusive space. Members can create posts, comment, reply, like, search, and
 				report content to keep the conversations supportive. I designed and developed the platform
 				as a freelance project for a friend who saw the need for this kind of community, taking the
-				idea from vision to launch. The frontend is built with Next.js and hosted on Vercel, while
-				the backend is built with Supabase.
+				idea from vision to launch. The frontend is built with Next.js and hosted on Vercel, and the
+				backend is built with Supabase.
 			</p>
 			<img class="full-width-img" src={unison} alt="Unison" loading="lazy" />
 			<div class="project-buttons">
