@@ -6,6 +6,7 @@
 
 	const headshot = '/images/headshot.jpg';
 	const unison = '/images/unison.png';
+	const linkedInMessagePreview = '/images/linkedin-message-preview.jpg';
 	const racquetRivals = '/images/racquet-rivals-image3.png';
 	const aiPokerCoach = '/images/ai-poker-coach-image.png';
 	const gridlock = '/images/gridlock-image.png';
@@ -15,13 +16,13 @@
 	const check = '/images/check-solid.svg';
 	const externalLink = '/images/arrow-up-right-from-square-solid.svg';
 
-	let scrollTo: Function;
+	let scrollTo: (selector: string) => void;
 	onMount(() => {
 		scrollTo = (selector: string): void => document.querySelector(selector)?.scrollIntoView(true);
 	});
 
-	let showCheck: boolean = false;
-	let copyEmail: Function;
+	let showCheck = false;
+	let copyEmail: () => void;
 	onMount(() => {
 		copyEmail = (): void => {
 			navigator.clipboard.writeText('williamhbraun1@gmail.com');
@@ -90,6 +91,42 @@
 					<button class="button-primary" type="button">
 						<p>unisoncommunity.com</p>
 						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
+			<h3>LinkedIn Message Preview</h3>
+			<p>
+				Want to read LinkedIn messages without marking them as read? This Chrome extension lets you
+				preview messages simply by hovering over them. It's available for free on the Chrome Web
+				Store and has over 150 weekly users with a 5-star rating.
+			</p>
+			<img
+				class="full-width-img"
+				src={linkedInMessagePreview}
+				alt="LinkedIn Message Preview"
+				loading="lazy"
+			/>
+			<div class="project-buttons">
+				<a
+					href="https://chromewebstore.google.com/detail/linkedin-message-preview/ldlcapdmaddcmhnmelfehiklgclgknhk?hl=en"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary" type="button">
+						<p>Chrome Web Store</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
+				<a
+					href="https://github.com/willbraun/linkedin-message-preview"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary github-button" type="button">
+						<p>GitHub</p>
+						<img src={github} alt="github icon" loading="lazy" />
 					</button>
 				</a>
 			</div>
@@ -200,10 +237,9 @@
 					</p>
 					<br />
 					<p>
-						Do you like a challenge? I am most proud of the "Computer - Hard" mode in Settings. It
-						is an AI inspired by chess engines that I created to play against you. It uses a DFS
-						minimax algorithm, alpha-beta pruning, and an evaluation function. See if you can beat
-						it!
+						Do you like a challenge? The "Computer - Hard" mode in the settings is an AI inspired by
+						chess engines that I created to play against you. It uses a DFS minimax algorithm,
+						alpha-beta pruning, and an evaluation function. See if you can beat it!
 					</p>
 					<div class="project-buttons">
 						<a href="https://gridlock.willbraun.dev" target="_blank" rel="noopener noreferrer">

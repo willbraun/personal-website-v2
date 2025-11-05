@@ -5,18 +5,21 @@
 
 	let scrollY: number;
 	let downArrowY: number;
-	let underwaterClass: string = '';
+	let underwaterClass = '';
 	onMount(() => {
-		const mainTop = document.querySelector('main')!.getBoundingClientRect().top;
-		const downArrowTop = document.querySelector('.down-arrow-box')!.getBoundingClientRect().top;
+		const mainTop = document.querySelector('main')?.getBoundingClientRect().top;
+		const downArrowTop = document.querySelector('.down-arrow-box')?.getBoundingClientRect().top;
+
+		if (mainTop === undefined || downArrowTop === undefined) return;
+
 		downArrowY = downArrowTop - mainTop;
 	});
 	$: underwaterClass = scrollY > downArrowY ? 'underwater' : '';
 
 	let scrollPoints: NodeListOf<HTMLElement>;
-	let scrollToPoint: Function;
+	let scrollToPoint: (index: number) => void;
 	let labels: string[] = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
-	let open: boolean = false;
+	let open = false;
 	const toggle = () => (open = !open);
 	onMount(() => {
 		scrollPoints = document.querySelectorAll('.scroll-point');
