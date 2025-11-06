@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { techData } from '../techData';
-	import TechLogo from './TechLogo.svelte';
+	import Bubbles from './Bubbles.svelte';
 	import Wave from './Wave.svelte';
 
 	const headshot = '/images/headshot.jpg';
@@ -67,11 +66,12 @@
 		</p>
 		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
 		<h3>Skills and Technologies</h3>
-		<div class="skills">
+		<Bubbles />
+		<!-- <div class="skills">
 			{#each techData as data, index}
 				<TechLogo {data} {index} />
 			{/each}
-		</div>
+		</div> -->
 	</section>
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
@@ -477,16 +477,6 @@
 
 	.about :not(h2) {
 		padding-bottom: 1rem;
-	}
-
-	.skills {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-
-		/* enable below if one skill in last row */
-		max-width: 700px;
-		margin: auto;
 	}
 
 	.project {

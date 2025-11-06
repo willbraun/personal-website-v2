@@ -9,7 +9,7 @@
 	let { data, index }: Props = $props();
 </script>
 
-<div class="tech-logo" style="animation-delay: -{0.5 * index}s">
+<div class="tech-logo">
 	<div class="img-box">
 		<img src={data.imageSrc} alt="{data.name} logo" />
 	</div>
@@ -19,10 +19,10 @@
 <style>
 	.tech-logo {
 		position: relative;
-		width: 20%;
+		width: 6rem;
 		max-width: 8rem;
 		margin: 1rem 1rem 2rem;
-		animation: bob 3s ease-in-out infinite;
+		/* animation: bob 3s ease-in-out infinite; */
 	}
 
 	.img-box {
