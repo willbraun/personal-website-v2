@@ -57,9 +57,10 @@
 
 			return Bodies.circle(x, y, radius, {
 				restitution: 1, // Bounciness
+				density: 0.5,
 				friction: 0,
-				density: 1,
-				frictionAir: 0
+				frictionAir: 0,
+				frictionStatic: 0
 			});
 		});
 
@@ -67,28 +68,22 @@
 		const wallThickness = 1;
 		const walls = [
 			// Ground - position at the bottom edge minus bubble radius
-			Bodies.rectangle(
-				containerWidth / 2,
-				containerHeight - radius,
-				containerWidth,
-				wallThickness,
-				{ isStatic: true, restitution: 1 }
-			),
+			Bodies.rectangle(containerWidth / 2, containerHeight, containerWidth, wallThickness, {
+				isStatic: true,
+				restitution: 1
+			}),
 			// Left wall
-			Bodies.rectangle(radius, containerHeight / 2, wallThickness, containerHeight, {
+			Bodies.rectangle(0, containerHeight / 2, wallThickness, containerHeight, {
 				isStatic: true,
 				restitution: 1
 			}),
 			// Right wall
-			Bodies.rectangle(
-				containerWidth - radius,
-				containerHeight / 2,
-				wallThickness,
-				containerHeight,
-				{ isStatic: true, restitution: 1 }
-			),
+			Bodies.rectangle(containerWidth, containerHeight / 2, wallThickness, containerHeight, {
+				isStatic: true,
+				restitution: 1
+			}),
 			// Ceiling
-			Bodies.rectangle(containerWidth / 2, radius, containerWidth, wallThickness, {
+			Bodies.rectangle(containerWidth / 2, 0, containerWidth, wallThickness, {
 				isStatic: true,
 				restitution: 1
 			})
@@ -99,8 +94,6 @@
 		// Create a mouse body that pushes bubbles
 		const mouseRadius = 30;
 		let mouseBody = Bodies.circle(-100, -100, mouseRadius, {
-			isStatic: true,
-			isSensor: false,
 			restitution: 1.1
 		});
 		Composite.add(world, mouseBody);
@@ -146,13 +139,27 @@
 				bubbles[i].x = body.position.x;
 				bubbles[i].y = body.position.y;
 				bubbles[i].rotation = body.angle;
+
+				// Keep bubbles moving with random gentle nudges when they slow down
+				const speed = Math.sqrt(body.velocity.x ** 2 + body.velocity.y ** 2);
+				const minSpeed = 0.5;
+
+				if (speed < minSpeed) {
+					// Apply a small random force to keep it moving
+					const forceStrength = 2;
+					const angle = Math.random() * Math.PI * 2;
+					Body.applyForce(body, body.position, {
+						x: Math.cos(angle) * forceStrength,
+						y: Math.sin(angle) * forceStrength
+					});
+				}
 			});
 		});
 
 		// Add some initial random velocities for fun
 		bodies.forEach((body) => {
 			Body.setVelocity(body, {
-				x: (Math.random() - 0.5) * 5,
+				x: (Math.random() - 0.5) * 2,
 				y: (Math.random() - 0.5) * 2
 			});
 		});

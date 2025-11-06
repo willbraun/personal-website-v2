@@ -55,7 +55,7 @@
 			</button>
 		</div>
 	</section>
-
+	<Bubbles />
 	<section class="scroll-point about">
 		<h2>About</h2>
 		<p>
@@ -65,9 +65,9 @@
 			and intuitive solutions across the tech stack.
 		</p>
 		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
-		<h3>Skills and Technologies</h3>
+		<!-- <h3>Skills and Technologies</h3> -->
 	</section>
-	<Bubbles />
+
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
@@ -475,7 +475,7 @@
 	}
 
 	.project {
-		margin: 0 0 2rem;
+		margin: 0 0 4rem;
 	}
 
 	.full-width-img {
