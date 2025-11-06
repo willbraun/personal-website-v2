@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { Offcanvas } from '@sveltestrap/sveltestrap';
 	import { onMount } from 'svelte';
-	import { Offcanvas } from 'sveltestrap/src';
 	const menu = '/images/bars-solid.svg';
 
 	let scrollY: number;
