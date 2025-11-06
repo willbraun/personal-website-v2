@@ -111,8 +111,49 @@
 			Body.setPosition(mouseBody, { x: -100, y: -100 });
 		};
 
+		// Handle touch events for mobile
+		let touchStartPos = { x: 0, y: 0 };
+		const moveThreshold = 10; // pixels
+
+		const handleTouchStart = (event: TouchEvent) => {
+			const rect = container.getBoundingClientRect();
+			const touch = event.touches[0];
+			touchStartPos.x = touch.clientX - rect.left;
+			touchStartPos.y = touch.clientY - rect.top;
+		};
+
+		const handleTouchMove = (event: TouchEvent) => {
+			const rect = container.getBoundingClientRect();
+			const touch = event.touches[0];
+			const x = touch.clientX - rect.left;
+			const y = touch.clientY - rect.top;
+
+			// Only prevent scrolling if moving horizontally (interacting with bubbles)
+			// Allow vertical scrolling
+			const deltaX = Math.abs(x - touchStartPos.x);
+			const deltaY = Math.abs(y - touchStartPos.y);
+
+			if (deltaX > deltaY && deltaX > moveThreshold) {
+				// Horizontal movement - interact with bubbles and prevent scroll
+				event.preventDefault();
+				Body.setPosition(mouseBody, { x, y });
+			} else if (deltaX > moveThreshold || deltaY > moveThreshold) {
+				// Any significant movement - interact with bubbles
+				Body.setPosition(mouseBody, { x, y });
+			}
+		};
+
+		const handleTouchEnd = () => {
+			// Move mouse body off-screen when touch ends
+			Body.setPosition(mouseBody, { x: -100, y: -100 });
+		};
+
 		container.addEventListener('mousemove', handleMouseMove);
 		container.addEventListener('mouseleave', handleMouseLeave);
+		container.addEventListener('touchstart', handleTouchStart);
+		container.addEventListener('touchmove', handleTouchMove, { passive: false });
+		container.addEventListener('touchend', handleTouchEnd);
+		container.addEventListener('touchcancel', handleTouchEnd);
 
 		// Add debug renderer
 		const render = Render.create({
@@ -167,6 +208,10 @@
 		onDestroy(() => {
 			container.removeEventListener('mousemove', handleMouseMove);
 			container.removeEventListener('mouseleave', handleMouseLeave);
+			container.removeEventListener('touchstart', handleTouchStart);
+			container.removeEventListener('touchmove', handleTouchMove);
+			container.removeEventListener('touchend', handleTouchEnd);
+			container.removeEventListener('touchcancel', handleTouchEnd);
 			Runner.stop(runner);
 			Render.stop(render);
 			Matter.World.clear(world, false);
@@ -195,6 +240,8 @@
 		overflow: hidden;
 		background: transparent;
 		cursor: pointer;
+		/* Allow vertical scrolling but handle horizontal gestures for bubble interaction */
+		touch-action: pan-y;
 	}
 
 	canvas {
