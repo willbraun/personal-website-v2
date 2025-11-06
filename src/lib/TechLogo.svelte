@@ -12,46 +12,45 @@
 <div class="tech-logo">
 	<div class="img-box">
 		<img src={data.imageSrc} alt="{data.name} logo" />
+		<p class={data.name.length > 10 ? 'small-text' : ''}>{data.name}</p>
 	</div>
-	<p>{data.name}</p>
 </div>
 
 <style>
 	.tech-logo {
 		position: relative;
-		width: 6rem;
-		max-width: 8rem;
-		margin: 1rem 1rem 2rem;
-		/* animation: bob 3s ease-in-out infinite; */
+		width: 128px;
 	}
 
 	.img-box {
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		background-color: var(--accent-color);
 		border-radius: 50%;
 		width: 100%;
 		aspect-ratio: 1 / 1;
-		margin: 0 auto 0.5rem;
 	}
 
 	.img-box img {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		height: 60%;
+		position: relative;
+		height: 55%;
 		max-width: 70%;
 		object-fit: contain;
 	}
 
 	p {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+		position: relative;
 		text-align: center;
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		font-family: 'Bakbak One', 'Arial', 'sans-serif';
-		color: var(--accent-color);
+		color: black;
+	}
+
+	.small-text {
+		font-size: 0.9rem;
 	}
 
 	@keyframes bob {
@@ -67,8 +66,16 @@
 	}
 
 	@media (max-width: 576px) {
+		.tech-logo {
+			width: 96px;
+		}
+
 		p {
-			font-size: 1rem;
+			font-size: 0.8rem;
+		}
+
+		.small-text {
+			font-size: 0.7rem;
 		}
 	}
 

@@ -5,8 +5,12 @@
 	import TechLogo from './TechLogo.svelte';
 
 	let container: HTMLDivElement;
+	let canvas: HTMLCanvasElement;
 	let containerWidth = 0;
 	let containerHeight = 600;
+
+	// Toggle for debug visualization
+	let showDebug = $state(false);
 
 	// Store positions for each bubble
 	let bubbles = $state(
@@ -23,62 +27,115 @@
 		// Get container width from actual element
 		containerWidth = container.clientWidth;
 
-		const { Engine, Runner, Bodies, Composite, Events, Body } = Matter;
+		const { Engine, Runner, Bodies, Composite, Events, Body, Render } = Matter;
 
 		const engine = Engine.create();
 		const world = engine.world;
-		engine.gravity.y = 0;
+		engine.gravity.y = 0; // Restore gravity
 
 		// Bubble radius (matching TechLogo size)
-		const radius = 40;
+		const radius = containerWidth < 576 ? 48 : 64;
 
 		// Create physics bodies for each bubble
 		const bodies = bubbles.map((bubble, i) => {
 			// Distribute bubbles across the width with some randomness
-			const x = (containerWidth / (techData.length + 1)) * (i + 1) + (Math.random() - 0.5) * 50;
-			const y = Math.random() * 200 + 50; // Random height at top
+			// Ensure they stay within bounds (radius padding on each side)
+			const minX = radius + 10;
+			const maxX = containerWidth - radius - 10;
+			const spacing = (maxX - minX) / (techData.length - 1);
+			const baseX = minX + spacing * i;
+			const randomOffset = (Math.random() - 0.5) * Math.min(30, spacing * 0.5);
+			const x = Math.max(minX, Math.min(maxX, baseX + randomOffset));
+
+			// Random height at top, but ensure it's within bounds
+			const minY = radius + 10;
+			const maxY = 250;
+			const y = Math.random() * (maxY - minY) + minY;
 
 			bubble.x = x;
 			bubble.y = y;
 
 			return Bodies.circle(x, y, radius, {
-				restitution: 0.8, // Bounciness
-				friction: 0.01,
-				density: 0.001,
-				frictionAir: 0.01
+				restitution: 1, // Bounciness
+				friction: 0,
+				density: 1,
+				frictionAir: 0
 			});
 		});
 
 		// Create walls
-		const wallThickness = 50;
+		const wallThickness = 1;
 		const walls = [
-			// Ground
+			// Ground - position at the bottom edge minus bubble radius
 			Bodies.rectangle(
 				containerWidth / 2,
-				containerHeight + wallThickness / 2,
+				containerHeight - radius,
 				containerWidth,
 				wallThickness,
-				{ isStatic: true }
+				{ isStatic: true, restitution: 1 }
 			),
 			// Left wall
-			Bodies.rectangle(-wallThickness / 2, containerHeight / 2, wallThickness, containerHeight, {
-				isStatic: true
+			Bodies.rectangle(radius, containerHeight / 2, wallThickness, containerHeight, {
+				isStatic: true,
+				restitution: 1
 			}),
 			// Right wall
 			Bodies.rectangle(
-				containerWidth + wallThickness / 2,
+				containerWidth - radius,
 				containerHeight / 2,
 				wallThickness,
 				containerHeight,
-				{ isStatic: true }
+				{ isStatic: true, restitution: 1 }
 			),
 			// Ceiling
-			Bodies.rectangle(containerWidth / 2, -wallThickness / 2, containerWidth, wallThickness, {
-				isStatic: true
+			Bodies.rectangle(containerWidth / 2, radius, containerWidth, wallThickness, {
+				isStatic: true,
+				restitution: 1
 			})
 		];
 
-		Composite.add(world, [...bodies, ...walls]);
+		Composite.add(world, [...walls, ...bodies]);
+
+		// Create a mouse body that pushes bubbles
+		const mouseRadius = 30;
+		let mouseBody = Bodies.circle(-100, -100, mouseRadius, {
+			isStatic: true,
+			isSensor: false,
+			restitution: 1.1
+		});
+		Composite.add(world, mouseBody);
+
+		// Track mouse position and update mouse body
+		const handleMouseMove = (event: MouseEvent) => {
+			const rect = container.getBoundingClientRect();
+			const x = event.clientX - rect.left;
+			const y = event.clientY - rect.top;
+			Body.setPosition(mouseBody, { x, y });
+		};
+
+		const handleMouseLeave = () => {
+			// Move mouse body off-screen when mouse leaves
+			Body.setPosition(mouseBody, { x: -100, y: -100 });
+		};
+
+		container.addEventListener('mousemove', handleMouseMove);
+		container.addEventListener('mouseleave', handleMouseLeave);
+
+		// Add debug renderer
+		const render = Render.create({
+			canvas: canvas,
+			engine: engine,
+			options: {
+				width: containerWidth,
+				height: containerHeight,
+				wireframes: true,
+				background: 'transparent'
+			}
+		});
+
+		if (showDebug) {
+			Render.run(render);
+		}
 
 		const runner = Runner.create();
 		Runner.run(runner, engine);
@@ -95,13 +152,16 @@
 		// Add some initial random velocities for fun
 		bodies.forEach((body) => {
 			Body.setVelocity(body, {
-				x: (Math.random() - 0.5) * 2,
+				x: (Math.random() - 0.5) * 5,
 				y: (Math.random() - 0.5) * 2
 			});
 		});
 
 		onDestroy(() => {
+			container.removeEventListener('mousemove', handleMouseMove);
+			container.removeEventListener('mouseleave', handleMouseLeave);
 			Runner.stop(runner);
+			Render.stop(render);
 			Matter.World.clear(world, false);
 			Matter.Engine.clear(engine);
 		});
@@ -109,10 +169,11 @@
 </script>
 
 <div class="bubbles-container" bind:this={container}>
+	<canvas bind:this={canvas} class:debug-visible={showDebug}></canvas>
 	{#each bubbles as bubble (bubble.index)}
 		<div
 			class="bubble"
-			style="transform: translateX({bubble.x}px) translateY({bubble.y}px) rotate({bubble.rotation}rad);"
+			style="left: {bubble.x}px; top: {bubble.y}px; transform: translate(-50%, -50%) rotate({bubble.rotation}rad);"
 		>
 			<TechLogo data={bubble.data} index={bubble.index} />
 		</div>
@@ -126,6 +187,20 @@
 		position: relative;
 		overflow: hidden;
 		background: transparent;
+		cursor: pointer;
+	}
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	canvas.debug-visible {
+		opacity: 0.7;
+		z-index: 1000;
 	}
 
 	.bubble {

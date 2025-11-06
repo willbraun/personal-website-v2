@@ -66,13 +66,8 @@
 		</p>
 		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
 		<h3>Skills and Technologies</h3>
-		<Bubbles />
-		<!-- <div class="skills">
-			{#each techData as data, index}
-				<TechLogo {data} {index} />
-			{/each}
-		</div> -->
 	</section>
+	<Bubbles />
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
