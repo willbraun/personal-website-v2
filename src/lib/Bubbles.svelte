@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Matter from 'matter-js';
 	import { onDestroy, onMount } from 'svelte';
 	import { techData } from '../techData';
-	import TechLogo from './TechLogo.svelte';
+	import TechLogoBubble from './TechLogoBubble.svelte';
 
 	let container: HTMLDivElement;
 	let canvas: HTMLCanvasElement;
@@ -31,7 +32,11 @@
 
 		const engine = Engine.create();
 		const world = engine.world;
-		engine.gravity.y = 0; // Restore gravity
+		engine.gravity.y = 0;
+
+		// Increase constraint iterations for better collision resolution
+		engine.positionIterations = 10;
+		engine.velocityIterations = 10;
 
 		// Bubble radius (matching TechLogo size)
 		const radius = containerWidth < 576 ? 48 : 64;
@@ -49,18 +54,20 @@
 
 			// Random height at top, but ensure it's within bounds
 			const minY = radius + 10;
-			const maxY = 250;
+			const maxY = containerHeight - radius - 10;
 			const y = Math.random() * (maxY - minY) + minY;
 
 			bubble.x = x;
 			bubble.y = y;
 
 			return Bodies.circle(x, y, radius, {
-				restitution: 1, // Bounciness
-				density: 0.5,
+				restitution: 0.8, // Reduced bounciness to prevent perfect bounces
+				density: 0.02, // Lower density for lighter bubbles
 				friction: 0,
-				frictionAir: 0,
-				frictionStatic: 0
+				frictionAir: 0, // Small air resistance to dampen energy
+				frictionStatic: 0,
+				inertia: Infinity, // Prevent rotation
+				slop: 0.05 // Small allowed penetration for stability
 			});
 		});
 
@@ -70,22 +77,22 @@
 			// Ground - position at the bottom edge minus bubble radius
 			Bodies.rectangle(containerWidth / 2, containerHeight, containerWidth, wallThickness, {
 				isStatic: true,
-				restitution: 1
+				restitution: 0.8
 			}),
 			// Left wall
 			Bodies.rectangle(0, containerHeight / 2, wallThickness, containerHeight, {
 				isStatic: true,
-				restitution: 1
+				restitution: 0.8
 			}),
 			// Right wall
 			Bodies.rectangle(containerWidth, containerHeight / 2, wallThickness, containerHeight, {
 				isStatic: true,
-				restitution: 1
+				restitution: 0.8
 			}),
 			// Ceiling
 			Bodies.rectangle(containerWidth / 2, 0, containerWidth, wallThickness, {
 				isStatic: true,
-				restitution: 1
+				restitution: 0.8
 			})
 		];
 
@@ -94,7 +101,8 @@
 		// Create a mouse body that pushes bubbles
 		const mouseRadius = 30;
 		let mouseBody = Bodies.circle(-100, -100, mouseRadius, {
-			restitution: 1.1
+			isStatic: true,
+			restitution: 0.8
 		});
 		Composite.add(world, mouseBody);
 
@@ -179,7 +187,7 @@
 			bodies.forEach((body, i) => {
 				bubbles[i].x = body.position.x;
 				bubbles[i].y = body.position.y;
-				bubbles[i].rotation = body.angle;
+				// Don't update rotation - keep bubbles upright
 
 				// Keep bubbles moving with random gentle nudges when they slow down
 				const speed = Math.sqrt(body.velocity.x ** 2 + body.velocity.y ** 2);
@@ -187,21 +195,13 @@
 
 				if (speed < minSpeed) {
 					// Apply a small random force to keep it moving
-					const forceStrength = 2;
+					const forceStrength = 0.5;
 					const angle = Math.random() * Math.PI * 2;
 					Body.applyForce(body, body.position, {
 						x: Math.cos(angle) * forceStrength,
 						y: Math.sin(angle) * forceStrength
 					});
 				}
-			});
-		});
-
-		// Add some initial random velocities for fun
-		bodies.forEach((body) => {
-			Body.setVelocity(body, {
-				x: (Math.random() - 0.5) * 2,
-				y: (Math.random() - 0.5) * 2
 			});
 		});
 
@@ -222,14 +222,16 @@
 
 <div class="bubbles-container" bind:this={container}>
 	<canvas bind:this={canvas} class:debug-visible={showDebug}></canvas>
-	{#each bubbles as bubble (bubble.index)}
-		<div
-			class="bubble"
-			style="left: {bubble.x}px; top: {bubble.y}px; transform: translate(-50%, -50%) rotate({bubble.rotation}rad);"
-		>
-			<TechLogo data={bubble.data} index={bubble.index} />
-		</div>
-	{/each}
+	{#if browser}
+		{#each bubbles as bubble (bubble.index)}
+			<div
+				class="bubble"
+				style="left: {bubble.x}px; top: {bubble.y}px; transform: translate(-50%, -50%);"
+			>
+				<TechLogoBubble data={bubble.data} />
+			</div>
+		{/each}
+	{/if}
 </div>
 
 <style>
