@@ -16,13 +16,13 @@
 	const check = '/images/check-solid.svg';
 	const externalLink = '/images/arrow-up-right-from-square-solid.svg';
 
-	let scrollTo: (selector: string) => void;
+	let scrollTo = $state<((selector: string) => void) | undefined>();
 	onMount(() => {
 		scrollTo = (selector: string): void => document.querySelector(selector)?.scrollIntoView(true);
 	});
 
-	let showCheck = false;
-	let copyEmail: () => void;
+	let showCheck = $state(false);
+	let copyEmail = $state<(() => void) | undefined>();
 	onMount(() => {
 		copyEmail = (): void => {
 			navigator.clipboard.writeText('williamhbraun1@gmail.com');
@@ -31,7 +31,7 @@
 	});
 </script>
 
-<main class="scroll-point" on:scroll={() => console.log('hi')}>
+<main class="scroll-point" onscroll={() => console.log('hi')}>
 	<section class="top">
 		<div class="row align-items-center m-0 p-0">
 			<div class="col-xs-12 col-lg-7 pb-3 title">
@@ -46,7 +46,7 @@
 		</div>
 		<Wave />
 		<div class="down-arrow-box">
-			<button type="button" class="down-arrow" on:click={() => scrollTo('.about')}>
+			<button type="button" class="down-arrow" onclick={() => scrollTo?.('.about')}>
 				<img
 					class="col-xs-12"
 					src={downArrow}
@@ -210,7 +210,7 @@
 					allowfullscreen
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 					loading="lazy"
-				/>
+				></iframe>
 			</div>
 			<div class="project-buttons">
 				<a
@@ -323,7 +323,7 @@
 				</button>
 			</a>
 			<div class="copy-email">
-				<button class="copy-button button-secondary" type="button" on:click={() => copyEmail()}>
+				<button class="copy-button button-secondary" type="button" onclick={() => copyEmail?.()}>
 					<p>williamhbraun1@gmail.com</p>
 					<img src={copy} alt="copy email" loading="lazy" />
 				</button>
@@ -333,7 +333,7 @@
 			</div>
 		</div>
 	</section>
-	<button type="button" class="down-arrow up-arrow" on:click={() => scrollTo('.top')}>
+	<button type="button" class="down-arrow up-arrow" onclick={() => scrollTo?.('.top')}>
 		<img class="col-xs-12" src={downArrow} alt="up arrow scroll to top" loading="lazy" />
 	</button>
 </main>

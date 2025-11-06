@@ -3,9 +3,9 @@
 	import { onMount } from 'svelte';
 	const menu = '/images/bars-solid.svg';
 
-	let scrollY: number;
-	let downArrowY: number;
-	let underwaterClass = '';
+	let scrollY = $state(0);
+	let downArrowY = $state(0);
+	let underwaterClass = $state('');
 	onMount(() => {
 		const mainTop = document.querySelector('main')?.getBoundingClientRect().top;
 		const downArrowTop = document.querySelector('.down-arrow-box')?.getBoundingClientRect().top;
@@ -14,12 +14,14 @@
 
 		downArrowY = downArrowTop - mainTop;
 	});
-	$: underwaterClass = scrollY > downArrowY ? 'underwater' : '';
+	$effect(() => {
+		underwaterClass = scrollY > downArrowY ? 'underwater' : '';
+	});
 
 	let scrollPoints: NodeListOf<HTMLElement>;
-	let scrollToPoint: (index: number) => void;
+	let scrollToPoint = $state<((index: number) => void) | undefined>();
 	let labels: string[] = ['Home', 'About', 'Projects', 'Blog', 'Contact'];
-	let open = false;
+	let open = $state(false);
 	const toggle = () => (open = !open);
 	onMount(() => {
 		scrollPoints = document.querySelectorAll('.scroll-point');
@@ -34,12 +36,12 @@
 		<ul>
 			{#each labels as label, index}
 				<li>
-					<button on:click={() => scrollToPoint(index)}>{label}</button>
+					<button onclick={() => scrollToPoint?.(index)}>{label}</button>
 				</li>
 			{/each}
 		</ul>
 	</nav>
-	<button class="mobile-menu-button" type="button" on:click={toggle}>
+	<button class="mobile-menu-button" type="button" onclick={toggle}>
 		<img src={menu} alt="menu icon" loading="eager" />
 	</button>
 	<Offcanvas class="mobile-menu" isOpen={open} {toggle} placement="end">
@@ -48,8 +50,8 @@
 				{#each labels as label, index}
 					<li>
 						<button
-							on:click={() => {
-								scrollToPoint(index);
+							onclick={() => {
+								scrollToPoint?.(index);
 								toggle();
 							}}>{label}</button
 						>

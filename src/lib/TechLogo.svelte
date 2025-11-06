@@ -1,8 +1,12 @@
 <script lang="ts">
 	import type { TechData } from '../techData';
 
-	export let data: TechData;
-	export let index: number;
+	interface Props {
+		data: TechData;
+		index: number;
+	}
+
+	let { data, index }: Props = $props();
 </script>
 
 <div class="tech-logo" style="animation-delay: -{0.5 * index}s">
