@@ -44,7 +44,17 @@
 			/* Outer glow and shadow */ 0 8px 16px rgba(0, 0, 0, 0.15),
 			0 2px 4px rgba(0, 0, 0, 0.1);
 		border: 2px solid rgba(255, 255, 255, 0.6);
+		/* Remove backdrop-filter on mobile - it's very expensive */
 		backdrop-filter: blur(10px);
+		/* GPU acceleration */
+		will-change: transform;
+	}
+
+	@media (max-width: 768px) {
+		.img-box {
+			/* Remove expensive backdrop filter on mobile */
+			backdrop-filter: none;
+		}
 	}
 
 	/* Glossy highlight overlay */

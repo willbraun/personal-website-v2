@@ -34,9 +34,10 @@
 		const world = engine.world;
 		engine.gravity.y = 0;
 
-		// Increase constraint iterations for better collision resolution
-		engine.positionIterations = 10;
-		engine.velocityIterations = 10;
+		// Reduce iterations on mobile for better performance
+		const isMobile = containerWidth < 768;
+		engine.positionIterations = isMobile ? 6 : 10;
+		engine.velocityIterations = isMobile ? 6 : 10;
 
 		// Bubble radius (matching TechLogo size)
 		const radius = containerWidth < 576 ? 48 : 64;
@@ -119,49 +120,8 @@
 			Body.setPosition(mouseBody, { x: -100, y: -100 });
 		};
 
-		// Handle touch events for mobile
-		let touchStartPos = { x: 0, y: 0 };
-		const moveThreshold = 10; // pixels
-
-		const handleTouchStart = (event: TouchEvent) => {
-			const rect = container.getBoundingClientRect();
-			const touch = event.touches[0];
-			touchStartPos.x = touch.clientX - rect.left;
-			touchStartPos.y = touch.clientY - rect.top;
-		};
-
-		const handleTouchMove = (event: TouchEvent) => {
-			const rect = container.getBoundingClientRect();
-			const touch = event.touches[0];
-			const x = touch.clientX - rect.left;
-			const y = touch.clientY - rect.top;
-
-			// Only prevent scrolling if moving horizontally (interacting with bubbles)
-			// Allow vertical scrolling
-			const deltaX = Math.abs(x - touchStartPos.x);
-			const deltaY = Math.abs(y - touchStartPos.y);
-
-			if (deltaX > deltaY && deltaX > moveThreshold) {
-				// Horizontal movement - interact with bubbles and prevent scroll
-				event.preventDefault();
-				Body.setPosition(mouseBody, { x, y });
-			} else if (deltaX > moveThreshold || deltaY > moveThreshold) {
-				// Any significant movement - interact with bubbles
-				Body.setPosition(mouseBody, { x, y });
-			}
-		};
-
-		const handleTouchEnd = () => {
-			// Move mouse body off-screen when touch ends
-			Body.setPosition(mouseBody, { x: -100, y: -100 });
-		};
-
 		container.addEventListener('mousemove', handleMouseMove);
 		container.addEventListener('mouseleave', handleMouseLeave);
-		container.addEventListener('touchstart', handleTouchStart);
-		container.addEventListener('touchmove', handleTouchMove, { passive: false });
-		container.addEventListener('touchend', handleTouchEnd);
-		container.addEventListener('touchcancel', handleTouchEnd);
 
 		// Add debug renderer
 		const render = Render.create({
@@ -182,25 +142,39 @@
 		const runner = Runner.create();
 		Runner.run(runner, engine);
 
+		// Throttle updates on mobile for better performance
+		let frameCount = 0;
+		const updateInterval = isMobile ? 2 : 1; // Update every 2nd frame on mobile
+
 		// Update Svelte component positions every frame
 		Events.on(runner, 'afterUpdate', () => {
+			frameCount++;
+
+			// Skip updates on mobile to reduce DOM manipulation
+			if (frameCount % updateInterval !== 0) {
+				return;
+			}
+
 			bodies.forEach((body, i) => {
 				bubbles[i].x = body.position.x;
 				bubbles[i].y = body.position.y;
 				// Don't update rotation - keep bubbles upright
 
 				// Keep bubbles moving with random gentle nudges when they slow down
-				const speed = Math.sqrt(body.velocity.x ** 2 + body.velocity.y ** 2);
-				const minSpeed = 0.5;
+				// Only check every few frames to reduce calculations
+				if (frameCount % 10 === 0) {
+					const speed = Math.sqrt(body.velocity.x ** 2 + body.velocity.y ** 2);
+					const minSpeed = 0.5;
 
-				if (speed < minSpeed) {
-					// Apply a small random force to keep it moving
-					const forceStrength = 0.5;
-					const angle = Math.random() * Math.PI * 2;
-					Body.applyForce(body, body.position, {
-						x: Math.cos(angle) * forceStrength,
-						y: Math.sin(angle) * forceStrength
-					});
+					if (speed < minSpeed) {
+						// Apply a small random force to keep it moving
+						const forceStrength = 0.5;
+						const angle = Math.random() * Math.PI * 2;
+						Body.applyForce(body, body.position, {
+							x: Math.cos(angle) * forceStrength,
+							y: Math.sin(angle) * forceStrength
+						});
+					}
 				}
 			});
 		});
@@ -208,10 +182,6 @@
 		onDestroy(() => {
 			container.removeEventListener('mousemove', handleMouseMove);
 			container.removeEventListener('mouseleave', handleMouseLeave);
-			container.removeEventListener('touchstart', handleTouchStart);
-			container.removeEventListener('touchmove', handleTouchMove);
-			container.removeEventListener('touchend', handleTouchEnd);
-			container.removeEventListener('touchcancel', handleTouchEnd);
 			Runner.stop(runner);
 			Render.stop(render);
 			Matter.World.clear(world, false);
@@ -242,8 +212,6 @@
 		overflow: hidden;
 		background: transparent;
 		cursor: pointer;
-		/* Allow vertical scrolling but handle horizontal gestures for bubble interaction */
-		touch-action: pan-y;
 	}
 
 	canvas {
@@ -262,5 +230,8 @@
 	.bubble {
 		position: absolute;
 		pointer-events: none;
+		/* Use GPU acceleration for better performance */
+		will-change: transform;
+		transform: translate3d(0, 0, 0);
 	}
 </style>
