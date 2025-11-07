@@ -8,7 +8,7 @@
 	let container: HTMLDivElement;
 	let canvas: HTMLCanvasElement;
 	let containerWidth = 0;
-	let containerHeight = 600;
+	let containerHeight = 650;
 
 	// Toggle for debug visualization
 	let showDebug = $state(false);
@@ -62,13 +62,12 @@
 			bubble.y = y;
 
 			return Bodies.circle(x, y, radius, {
-				restitution: 0.8, // Reduced bounciness to prevent perfect bounces
-				density: 0.02, // Lower density for lighter bubbles
+				restitution: isMobile ? 0.8 : 0.9, // Reduced bounciness to prevent perfect bounces
+				density: isMobile ? 0.1 : 0.01, // Lower density for lighter bubbles
 				friction: 0,
 				frictionAir: 0, // Small air resistance to dampen energy
 				frictionStatic: 0,
-				inertia: Infinity, // Prevent rotation
-				slop: 0.05 // Small allowed penetration for stability
+				inertia: Infinity // Prevent rotation
 			});
 		});
 
@@ -160,20 +159,32 @@
 				bubbles[i].y = body.position.y;
 				// Don't update rotation - keep bubbles upright
 
-				// Keep bubbles moving with random gentle nudges when they slow down
+				// Keep bubbles moving with gentle nudges in their current direction
 				// Only check every few frames to reduce calculations
 				if (frameCount % 10 === 0) {
 					const speed = Math.sqrt(body.velocity.x ** 2 + body.velocity.y ** 2);
-					const minSpeed = 0.5;
+					const minSpeed = isMobile ? 0.2 : 0.5;
 
 					if (speed < minSpeed) {
-						// Apply a small random force to keep it moving
-						const forceStrength = 0.5;
-						const angle = Math.random() * Math.PI * 2;
-						Body.applyForce(body, body.position, {
-							x: Math.cos(angle) * forceStrength,
-							y: Math.sin(angle) * forceStrength
-						});
+						// Apply force in the direction the bubble is already moving
+						// If speed is very close to 0, add a small random component
+						const forceStrength = isMobile ? 0.15 : 0.3;
+
+						let forceX, forceY;
+						if (speed > 0.01) {
+							// Normalize velocity and apply force in that direction
+							const normX = body.velocity.x / speed;
+							const normY = body.velocity.y / speed;
+							forceX = normX * forceStrength;
+							forceY = normY * forceStrength;
+						} else {
+							// If nearly stationary, apply a small random force
+							const angle = Math.random() * Math.PI * 2;
+							forceX = Math.cos(angle) * forceStrength;
+							forceY = Math.sin(angle) * forceStrength;
+						}
+
+						Body.applyForce(body, body.position, { x: forceX, y: forceY });
 					}
 				}
 			});
@@ -190,7 +201,7 @@
 	});
 </script>
 
-<div class="bubbles-container" bind:this={container}>
+<div class="bubbles-container" bind:this={container} style="height: {containerHeight}px;">
 	<canvas bind:this={canvas} class:debug-visible={showDebug}></canvas>
 	{#if browser}
 		{#each bubbles as bubble (bubble.index)}
@@ -207,7 +218,6 @@
 <style>
 	.bubbles-container {
 		width: 100%;
-		height: 600px;
 		position: relative;
 		overflow: hidden;
 		background: transparent;

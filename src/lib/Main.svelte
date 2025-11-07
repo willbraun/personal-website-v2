@@ -65,7 +65,6 @@
 			and intuitive solutions across the tech stack.
 		</p>
 		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
-		<!-- <h3>Skills and Technologies</h3> -->
 	</section>
 
 	<section class="scroll-point projects">
@@ -504,6 +503,7 @@
 	.project-buttons {
 		display: flex;
 		justify-content: space-evenly;
+		flex-wrap: wrap;
 		gap: 1rem;
 		width: 100%;
 		margin-top: 2rem;
