@@ -94,7 +94,7 @@
 			<p>
 				Want to read LinkedIn messages without marking them as read? This Chrome extension lets you
 				preview messages simply by hovering over them. It's available for free on the Chrome Web
-				Store and has over 150 weekly users with a 5-star rating.
+				Store and has over 160 weekly users with a 5-star rating.
 			</p>
 			<img
 				class="full-width-img"
@@ -145,36 +145,6 @@
 				</a>
 				<a
 					href="https://github.com/willbraun/racquet-rivals"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button class="button-primary github-button" type="button">
-						<p>GitHub</p>
-						<img src={github} alt="github icon" loading="lazy" />
-					</button>
-				</a>
-			</div>
-		</article>
-		<article class="project">
-			<h3>AI Poker Coach</h3>
-			<p>
-				Poker is a game of incomplete information and luck, so it can be difficult to know if your
-				play is correct. With this app, you can analyze your poker hands using AI fine-tuned with
-				poker information. You're able to review your analysis in English rather than needing to
-				decipher complex diagrams via traditional methods of poker study. The frontend is built with
-				Next.js and hosted on Netlify, and the backend is an ASP.NET Core Web API with a PostgreSQL
-				database hosted on a Digital Ocean Linux Droplet.
-			</p>
-			<img class="full-width-img" src={aiPokerCoach} alt="AI Poker Coach" loading="lazy" />
-			<div class="project-buttons">
-				<a href="https://aipokercoach.willbraun.dev" target="_blank" rel="noopener noreferrer">
-					<button class="button-primary" type="button">
-						<p>AI Poker Coach</p>
-						<img src={externalLink} alt="external link icon" loading="lazy" />
-					</button>
-				</a>
-				<a
-					href="https://github.com/willbraun/ai-poker-coach"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
