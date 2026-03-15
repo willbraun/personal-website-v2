@@ -94,7 +94,7 @@
 			<p>
 				Want to read LinkedIn messages without marking them as read? This Chrome extension lets you
 				preview messages simply by hovering over them. It's available for free on the Chrome Web
-				Store and has over 160 weekly users with a 5-star rating.
+				Store and has over 180 weekly users with a 5-star rating.
 			</p>
 			<img
 				class="full-width-img"
