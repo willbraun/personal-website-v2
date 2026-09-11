@@ -556,7 +556,7 @@
 
 	.button-primary:hover,
 	.button-secondary:hover {
-		transform: scale(1.07);
+		filter: brightness(85%);
 	}
 
 	.blog .button-primary {

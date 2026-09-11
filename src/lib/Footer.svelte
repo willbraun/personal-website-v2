@@ -1,5 +1,6 @@
 <script lang="ts">
 	const linkedin = '/images/linkedin.svg';
+	const x = '/images/x.svg';
 	const github = '/images/github.svg';
 
 	let year: string = new Date().getFullYear().toString();
@@ -14,7 +15,10 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<img src={linkedin} alt="GitHub icon" loading="lazy" />
+			<img src={linkedin} alt="LinkedIn icon" loading="lazy" />
+		</a>
+		<a class="logo" href="https://x.com/WillBraunDev" target="_blank" rel="noopener noreferrer">
+			<img src={x} alt="X icon" loading="lazy" />
 		</a>
 		<a class="logo" href="https://github.com/willbraun" target="_blank" rel="noopener noreferrer">
 			<img src={github} alt="GitHub icon" loading="lazy" />
@@ -50,6 +54,11 @@
 	.logo img {
 		width: 2.5rem;
 		filter: var(--svg-filter-999999);
+	}
+
+	.logo img:hover {
+		filter: var(--svg-filter-white);
+		transition: filter 0.1s ease;
 	}
 
 	@media (max-width: 768px) {
