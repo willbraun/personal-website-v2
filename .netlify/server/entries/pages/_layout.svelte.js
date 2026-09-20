@@ -1,10 +1,9 @@
-import { c as create_ssr_component } from "../../chunks/index.js";
-const normalize = "";
-const main = "";
-const app = "";
-const Layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `${slots.default ? slots.default({}) : ``}`;
-});
+import "clsx";
+function _layout($$renderer, $$props) {
+  let { children } = $$props;
+  children?.($$renderer);
+  $$renderer.push(`<!---->`);
+}
 export {
-  Layout as default
+  _layout as default
 };

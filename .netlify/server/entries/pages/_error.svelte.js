@@ -1,39 +1,56 @@
-import { g as getContext, c as create_ssr_component, b as subscribe, e as escape } from "../../chunks/index.js";
-const getStores = () => {
-  const stores = getContext("__svelte__");
-  return {
-    page: {
-      subscribe: stores.page.subscribe
-    },
-    navigating: {
-      subscribe: stores.navigating.subscribe
-    },
-    updated: stores.updated
-  };
+import { n as noop, l as getContext, m as escape_html } from "../../chunks/context.js";
+import "clsx";
+import "@sveltejs/kit/internal/server";
+import "@sveltejs/kit/internal";
+import "../../chunks/exports.js";
+import "../../chunks/utils.js";
+import { w as writable } from "../../chunks/index.js";
+function create_updated_store() {
+  const { set, subscribe } = writable(false);
+  {
+    return {
+      subscribe,
+      // eslint-disable-next-line @typescript-eslint/require-await
+      check: async () => false
+    };
+  }
+}
+const is_legacy = noop.toString().includes("$$") || /function \w+\(\) \{\}/.test(noop.toString());
+if (is_legacy) {
+  ({
+    data: {},
+    form: null,
+    error: null,
+    params: {},
+    route: { id: null },
+    state: {},
+    status: -1,
+    url: new URL("https://example.com")
+  });
+}
+const stores = {
+  updated: /* @__PURE__ */ create_updated_store()
 };
-const page = {
-  /** @param {(value: any) => void} fn */
-  subscribe(fn) {
-    const store = getStores().page;
-    return store.subscribe(fn);
+({
+  check: stores.updated.check
+});
+function context() {
+  return getContext("__request__");
+}
+const page$1 = {
+  get error() {
+    return context().page.error;
+  },
+  get status() {
+    return context().page.status;
   }
 };
-const _error_svelte_svelte_type_style_lang = "";
-const css = {
-  code: "div.svelte-11gfgug.svelte-11gfgug{width:100%;height:100vh;background-color:var(--background-color);display:flex;justify-content:center;align-items:center;padding:2rem}section.svelte-11gfgug>h1.svelte-11gfgug,section.svelte-11gfgug>p.svelte-11gfgug{background:var(--sky-gradient);font-family:'Bakbak One';background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;word-wrap:break-word}h1.svelte-11gfgug.svelte-11gfgug{font-size:6rem}p.svelte-11gfgug.svelte-11gfgug{font-size:3rem}a.svelte-11gfgug.svelte-11gfgug{font-size:1.5rem;color:var(--sky-blue)}",
-  map: null
-};
-const Error$1 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $page, $$unsubscribe_page;
-  $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  $$result.css.add(css);
-  $$unsubscribe_page();
-  return `<div class="svelte-11gfgug"><section class="svelte-11gfgug"><h1 class="svelte-11gfgug">Error</h1>
-		<p class="svelte-11gfgug">${escape($page.status)} - ${escape($page.error?.message)}</p>
-		<br>
-		<a href="/" class="svelte-11gfgug">Home</a></section>
-</div>`;
-});
+const page = page$1;
+function _error($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    $$renderer2.push(`<div class="svelte-1j96wlh"><section class="svelte-1j96wlh"><h1 class="svelte-1j96wlh">Error</h1> <p class="svelte-1j96wlh">${escape_html(page.status)} - ${escape_html(page.error?.message)}</p> <br/> <a href="/" class="svelte-1j96wlh">Home</a></section></div>`);
+  });
+}
 export {
-  Error$1 as default
+  _error as default
 };
