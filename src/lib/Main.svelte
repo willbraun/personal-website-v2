@@ -64,7 +64,12 @@
 			tools in my toolbox and bring a unique perspective to every project. I strive to build robust
 			and intuitive solutions across the tech stack.
 		</p>
-		<p>I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's chat!</p>
+		<p>
+			I also build web apps in my spare time. Have an idea? Tired of vibe coding? Let's <button
+				onclick={() => scrollTo?.('.contact')}
+				class="link">chat!</button
+			>
+		</p>
 	</section>
 
 	<section class="scroll-point projects">
@@ -279,21 +284,35 @@
 	<section class="scroll-point contact">
 		<h2>Contact</h2>
 		<div class="contact-info">
-			<p>Want to chat? Feel free to reach out!</p>
-			<a href="mailto:williamhbraun1@gmail.com" target="_blank" rel="noopener noreferrer">
-				<button class="button-primary" type="button">
-					<p>Open Mail App</p>
-					<img src={externalLink} alt="external link icon" loading="lazy" />
-				</button>
-			</a>
-			<div class="copy-email">
-				<button class="copy-button button-secondary" type="button" onclick={() => copyEmail?.()}>
-					<p>williamhbraun1@gmail.com</p>
-					<img src={copy} alt="copy email" loading="lazy" />
-				</button>
-				<div class="copied {showCheck && 'show-check'}">
-					<img src={check} alt="copied check mark" loading="lazy" />
+			<h3>Have an idea for something new?</h3>
+			<p>I can help bring it to life from concept to implementation.</p>
+			<div class="contact-buttons">
+				<div class="copy-email">
+					<button class="copy-button button-secondary" type="button" onclick={() => copyEmail?.()}>
+						<p>williamhbraun1@gmail.com</p>
+						<img src={copy} alt="copy email" loading="lazy" />
+					</button>
+					<div class="copied {showCheck && 'show-check'}">
+						<img src={check} alt="copied check mark" loading="lazy" />
+					</div>
 				</div>
+			</div>
+			<h3>Have a web app or site you need help with?</h3>
+			<p>
+				I diagnose and fix bugs and technical issues in web applications, specializing in React,
+				Next.js, and TypeScript.
+			</p>
+			<div class="contact-buttons">
+				<a
+					href="https://www.fiverr.com/williambraun/fix-bugs-in-your-react-or-next-js-website"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<button class="button-primary" type="button">
+						<p>Hire me on Fiverr</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
+					</button>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -518,6 +537,15 @@
 		border-radius: 0.5rem;
 	}
 
+	.link {
+		border: none;
+		background: none;
+		padding: 0;
+		color: inherit;
+		font: inherit;
+		text-decoration: underline;
+	}
+
 	.button-primary {
 		display: flex;
 		justify-content: space-between;
@@ -568,8 +596,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		align-items: start;
 		gap: 1rem;
+	}
+
+	.contact-buttons {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+		margin-bottom: 1rem;
 	}
 
 	.copy-email {
