@@ -297,23 +297,6 @@
 					</div>
 				</div>
 			</div>
-			<h3>Have a web app or site you need help with?</h3>
-			<p>
-				I diagnose and fix bugs and technical issues in web applications, specializing in React,
-				Next.js, and TypeScript.
-			</p>
-			<div class="contact-buttons">
-				<a
-					href="https://www.fiverr.com/williambraun/fix-bugs-in-your-react-or-next-js-website"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<button class="button-primary" type="button">
-						<p>Hire me on Fiverr</p>
-						<img src={externalLink} alt="external link icon" loading="lazy" />
-					</button>
-				</a>
-			</div>
 		</div>
 	</section>
 	<button type="button" class="down-arrow up-arrow" onclick={() => scrollTo?.('.top')}>
