@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import Bubbles from './Bubbles.svelte';
 	import Wave from './Wave.svelte';
 
@@ -7,12 +8,9 @@
 	const unison = '/images/unison.png';
 	const linkedInMessagePreview = '/images/linkedin-message-preview.jpg';
 	const racquetRivals = '/images/racquet-rivals-image3.png';
-	const aiPokerCoach = '/images/ai-poker-coach-image.png';
 	const gridlock = '/images/gridlock-image.png';
 	const downArrow = '/images/angles-down-solid.svg';
 	const github = '/images/github.svg';
-	const copy = '/images/copy-icon.svg';
-	const check = '/images/check-solid.svg';
 	const externalLink = '/images/arrow-up-right-from-square-solid.svg';
 
 	let scrollTo = $state<((selector: string) => void) | undefined>();
@@ -20,14 +18,47 @@
 		scrollTo = (selector: string): void => document.querySelector(selector)?.scrollIntoView(true);
 	});
 
-	let showCheck = $state(false);
-	let copyEmail = $state<(() => void) | undefined>();
-	onMount(() => {
-		copyEmail = (): void => {
-			navigator.clipboard.writeText('williamhbraun1@gmail.com');
-			showCheck = true;
-		};
-	});
+	const formEndpoint = 'https://formspree.io/f/xoeddryy';
+	let formStatus = $state<'idle' | 'submitting' | 'success' | 'error'>('idle');
+	let fieldErrors = $state<Record<string, string>>({});
+	let formError = $state('');
+
+	const handleSubmit = async (event: SubmitEvent): Promise<void> => {
+		event.preventDefault();
+		const form = event.currentTarget as HTMLFormElement;
+		formStatus = 'submitting';
+		fieldErrors = {};
+		formError = '';
+
+		try {
+			const response = await fetch(formEndpoint, {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { Accept: 'application/json' }
+			});
+
+			if (response.ok) {
+				form.reset();
+				formStatus = 'success';
+				return;
+			}
+
+			const data = await response.json().catch(() => ({}));
+			const errors: { field?: string; message: string }[] = data.errors ?? [];
+			for (const error of errors) {
+				if (error.field) {
+					fieldErrors[error.field] = error.message;
+				} else {
+					formError = error.message;
+				}
+			}
+			if (!errors.length) formError = 'Something went wrong. Please try again.';
+			formStatus = 'error';
+		} catch {
+			formError = 'Could not send your message. Please check your connection and try again.';
+			formStatus = 'error';
+		}
+	};
 </script>
 
 <main class="scroll-point" onscroll={() => console.log('hi')}>
@@ -286,17 +317,54 @@
 		<div class="contact-info">
 			<h3>Have an idea for something new?</h3>
 			<p>I can help bring it to life from concept to implementation.</p>
-			<div class="contact-buttons">
-				<div class="copy-email">
-					<button class="copy-button button-secondary" type="button" onclick={() => copyEmail?.()}>
-						<p>williamhbraun1@gmail.com</p>
-						<img src={copy} alt="copy email" loading="lazy" />
+			{#if formStatus === 'success'}
+				<p class="form-success" role="status" in:fade={{ duration: 300, delay: 300 }}>
+					Thanks for reaching out! I'll get back to you soon.
+				</p>
+			{:else}
+				<form
+					class="contact-form"
+					action={formEndpoint}
+					method="POST"
+					onsubmit={handleSubmit}
+					out:fade={{ duration: 300 }}
+				>
+					<label for="contact-email">Your email</label>
+					<input
+						id="contact-email"
+						type="email"
+						name="email"
+						required
+						aria-invalid={fieldErrors.email ? 'true' : undefined}
+					/>
+					{#if fieldErrors.email}<span class="form-error">{fieldErrors.email}</span>{/if}
+
+					<label for="contact-message">Message</label>
+					<textarea
+						id="contact-message"
+						name="message"
+						rows="5"
+						required
+						aria-invalid={fieldErrors.message ? 'true' : undefined}
+					></textarea>
+					{#if fieldErrors.message}<span class="form-error">{fieldErrors.message}</span>{/if}
+
+					<input
+						class="honeypot"
+						type="text"
+						name="_gotcha"
+						tabindex="-1"
+						autocomplete="off"
+						aria-hidden="true"
+					/>
+
+					{#if formError}<p class="form-error" role="alert">{formError}</p>{/if}
+
+					<button class="button-primary" type="submit" disabled={formStatus === 'submitting'}>
+						<p>{formStatus === 'submitting' ? 'Sending...' : 'Send Message'}</p>
 					</button>
-					<div class="copied {showCheck && 'show-check'}">
-						<img src={check} alt="copied check mark" loading="lazy" />
-					</div>
-				</div>
-			</div>
+				</form>
+			{/if}
 		</div>
 	</section>
 	<button type="button" class="down-arrow up-arrow" onclick={() => scrollTo?.('.top')}>
@@ -548,16 +616,7 @@
 		margin-left: 1rem;
 	}
 
-	.button-secondary {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		color: var(--accent-color);
-		background-color: transparent;
-	}
-
-	.button-primary,
-	.button-secondary {
+	.button-primary {
 		padding: 0.5rem 0.6rem;
 		border: 1px solid var(--accent-color);
 		border-radius: 0.5rem;
@@ -565,8 +624,7 @@
 		transition: 0.1s;
 	}
 
-	.button-primary:hover,
-	.button-secondary:hover {
+	.button-primary:hover {
 		filter: brightness(85%);
 	}
 
@@ -583,46 +641,61 @@
 		gap: 1rem;
 	}
 
-	.contact-buttons {
+	.contact-form {
 		display: flex;
-		justify-content: space-evenly;
+		flex-direction: column;
+		gap: 0.5rem;
 		width: 100%;
+		max-width: 32rem;
 		margin-bottom: 1rem;
 	}
 
-	.copy-email {
-		position: relative;
+	.contact-form label {
+		font-size: 1.1rem;
+		margin-top: 0.5rem;
+		color: var(--accent-color);
 	}
 
-	.copy-button {
+	.contact-form input:not(.honeypot),
+	.contact-form textarea {
 		width: 100%;
+		padding: 0.5rem 0.6rem;
+		font-size: 1.1rem;
+		color: var(--accent-color);
+		background-color: transparent;
+		border: 1px solid var(--accent-color);
+		border-radius: 0.5rem;
 	}
 
-	.copy-button img {
-		width: 1.8rem;
-		margin-left: 1rem;
-		filter: var(--svg-filter-accent);
+	.contact-form [aria-invalid='true'] {
+		border-color: #ff6b6b;
 	}
 
-	.copied {
+	.contact-form .button-primary {
+		align-self: flex-start;
+		margin-top: 1rem;
+	}
+
+	.contact-form .button-primary:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	.honeypot {
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		right: -3rem;
-		transition: 0.1s;
-	}
-
-	.copied img {
-		width: 2rem;
-		filter: var(--svg-filter-accent);
-	}
-
-	.copied:not(.show-check) {
+		left: -9999px;
+		height: 0;
+		width: 0;
 		opacity: 0;
 	}
 
-	.copied.show-check {
-		opacity: 1;
+	.form-error {
+		color: #ff6b6b;
+		font-size: 0.95rem;
+	}
+
+	.form-success {
+		font-weight: 800;
 	}
 
 	@media (max-width: 576px) {
@@ -657,13 +730,11 @@
 			bottom: -10px;
 		}
 
-		.button-primary p,
-		.button-secondary p {
+		.button-primary p {
 			font-size: 1.2rem;
 		}
 
-		.button-primary:hover,
-		.button-secondary:hover {
+		.button-primary:hover {
 			transform: none;
 		}
 
@@ -681,10 +752,6 @@
 
 		.gridlock-link {
 			pointer-events: none;
-		}
-
-		.copy-email {
-			transform: scale(0.9);
 		}
 	}
 
