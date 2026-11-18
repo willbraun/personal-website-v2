@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
 	import Bubbles from './Bubbles.svelte';
 	import Wave from './Wave.svelte';
 
@@ -106,26 +105,6 @@
 	<section class="scroll-point projects">
 		<h2>Projects</h2>
 		<article class="project">
-			<h3>Unison</h3>
-			<p>
-				Unison is an online community where women can share stories and discuss health and wellness
-				in a safe, inclusive space. Members can create posts, comment, reply, like, search, and
-				report content to keep the conversations supportive. I designed and developed the platform
-				as a freelance project for a friend who saw the need for this kind of community, taking the
-				idea from vision to launch. The frontend is built with Next.js and hosted on Vercel, and the
-				backend is built with Supabase.
-			</p>
-			<img class="full-width-img" src={unison} alt="Unison" loading="lazy" />
-			<div class="project-buttons">
-				<a href="https://unisoncommunity.com" target="_blank" rel="noopener noreferrer">
-					<button class="button-primary" type="button">
-						<p>unisoncommunity.com</p>
-						<img src={externalLink} alt="external link icon" loading="lazy" />
-					</button>
-				</a>
-			</div>
-		</article>
-		<article class="project">
 			<h3>LinkedIn Message Preview</h3>
 			<p>
 				Want to read LinkedIn messages without marking them as read? This Chrome extension lets you
@@ -157,6 +136,26 @@
 					<button class="button-primary github-button" type="button">
 						<p>GitHub</p>
 						<img src={github} alt="github icon" loading="lazy" />
+					</button>
+				</a>
+			</div>
+		</article>
+		<article class="project">
+			<h3>Unison</h3>
+			<p>
+				Unison is an online community where women can share stories and discuss health and wellness
+				in a safe, inclusive space. Members can create posts, comment, reply, like, search, and
+				report content to keep the conversations supportive. I designed and developed the platform
+				as a freelance project for a friend who saw the need for this kind of community, taking the
+				idea from vision to launch. The frontend is built with Next.js and hosted on Vercel, and the
+				backend is built with Supabase.
+			</p>
+			<img class="full-width-img" src={unison} alt="Unison" loading="lazy" />
+			<div class="project-buttons">
+				<a href="https://unisoncommunity.com" target="_blank" rel="noopener noreferrer">
+					<button class="button-primary" type="button">
+						<p>unisoncommunity.com</p>
+						<img src={externalLink} alt="external link icon" loading="lazy" />
 					</button>
 				</a>
 			</div>
@@ -318,17 +317,11 @@
 			<h3>Have an idea for something new?</h3>
 			<p>I can help bring it to life from concept to implementation.</p>
 			{#if formStatus === 'success'}
-				<p class="form-success" role="status" in:fade={{ duration: 300, delay: 300 }}>
+				<p class="form-success" role="status">
 					Thanks for reaching out! I'll get back to you soon.
 				</p>
 			{:else}
-				<form
-					class="contact-form"
-					action={formEndpoint}
-					method="POST"
-					onsubmit={handleSubmit}
-					out:fade={{ duration: 300 }}
-				>
+				<form class="contact-form" action={formEndpoint} method="POST" onsubmit={handleSubmit}>
 					<label for="contact-email">Your email</label>
 					<input
 						id="contact-email"
